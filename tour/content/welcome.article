@@ -1,5 +1,5 @@
 Bienvenido!
-Aprende cómo usar este tour: incluyendo cómo navegar entre las diferentes lecciones y cómo ejecutar el código.
+Aprende a cómo usar este tour: incluyendo cómo navegar entre las diferentes lecciones y cómo ejecutar el código.
 
 Los autores de Go
 https://golang.org
@@ -8,7 +8,7 @@ https://golang.org
 
 Bienvenido a un recorrido por el [[https://golang.org/][lenguaje de programación Go]].
 
-El tour está dividido en una lista de módulos al que puedes
+El tour está dividido en una lista de módulos a los que puedes
 acceder haciendo clic en
 [[javascript:highlight(".logo")][Un tour por Go]] en la esquina superior izquierda de la página.
 
@@ -19,7 +19,7 @@ A lo largo del tour, encontrarás una serie de diapositivas y ejercicios para qu
 Puedes navegar a través de ellos usando
 
 - [[javascript:highlight(".prev-page")]["antes"]] o `PageUp` para ir a la página anterior,
-- [[javascript:highlight(".next-page")]["siguiente"]] o `PageDown` para ir a la siguiente pagina.
+- [[javascript:highlight(".next-page")]["siguiente"]] o `PageDown` para ir a la página siguiente.
 
 El tour es interactivo. Haz clic el botón
 [[javascript:highlightAndClick("#run")][Run]]
@@ -30,7 +30,7 @@ El resultado se visualizará debajo del código.
 
 Este programa de ejemplo demuestra diferentes aspectos de Go. Los programas en el tour están destinados a ser puntos de partida para tu propia experiencia.
 
-Edita el programa y ejecútalo nuevamente.
+Modifica el programa y ejecútalo nuevamente.
 
 Cuando haces clic en [[javascript:highlightAndClick("#format")][Format]]
 (atajo: `Ctrl` + `Enter`), el siguiente texto en el editor es formateado usando la herramienta
