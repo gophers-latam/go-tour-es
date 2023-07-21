@@ -1,125 +1,126 @@
-Packages, variables, and functions.
-Learn the basic components of any Go program.
+Paquetes, variables y funciones.
+Aprenda los componentes esenciales de cualquier programa en Go.
 
 The Go Authors
 https://golang.org
 
-* Packages
+* Paquetes
 
-Every Go program is made up of packages.
+Cada programa de Go se compone de paquetes.
 
-Programs start running in package `main`.
+Los programas en Go comienzan a ejecutarse en el paquete `main` que siempre debe existir como punto de entrada para el flujo del programa.
 
-This program is using the packages with import paths `"fmt"` and `"math/rand"`.
+El programa que se muestra a la derecha está usando los paquetes con rutas de importación `"fmt"` y `"math/rand"`.
 
-By convention, the package name is the same as the last element of the import path. For instance, the `"math/rand"` package comprises files that begin with the statement `package`rand`.
+Por convención, el nombre del paquete es el mismo que el último elemento de la ruta de importación. Por ejemplo, el paquete `"math/rand"` comprende archivos que comienzan con la declaración `package`rand`. En cambio `"math"` viene siendo parte de la ruta donde se encuentra el paquete y a su vez tambien puede ser un paquete que comprende archivos que comienzan con la declaración `package`math`.
 
-#appengine: *Note:* The environment in which these programs are executed is
-#appengine: deterministic, so each time you run the example program
-#appengine: `rand.Intn` will return the same number.
+#appengine: *Nota:* El entorno en el que se ejecutan estos programas es
+#appengine: determinista, por lo que cada vez que ejecute el programa de ejemplo
+#appengine: `rand.Intn` devolverá el mismo número.
 #appengine:
-#appengine: (To see a different number, seed the number generator; see [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]].
-#appengine: Time is constant in the playground, so you will need to use something else as the seed.)
+#appengine: (Para ver un número diferente, inicie el generador de números; ver [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]].
+#appengine: El tiempo es constante en el playground, por lo que deberá usar otra cosa como semilla.)
 
 .play basics/packages.go
 
-* Imports
+* Importaciones
 
-This code groups the imports into a parenthesized, "factored" import statement.
+El código que se muestra a la derecha agrupa las importaciones en una instrucción de importación "factorizada" entre paréntesis.
 
-You can also write multiple import statements, like:
+También se puede escribir varias declaraciones de importación, como:
 
 	import "fmt"
 	import "math"
 
-But it is good style to use the factored import statement.
+Pero es un buen estilo o practica usar la declaración de importación factorizada cuando son multiples importaciones.
 
 .play basics/imports.go
 
-* Exported names
+* Nombres exportados
 
-In Go, a name is exported if it begins with a capital letter.
-For example, `Pizza` is an exported name, as is `Pi`, which is exported from
-the `math` package.
+En Go, un nombre se exporta si comienza con una letra mayúscula.
+Por ejemplo, `Pizza` es un nombre exportado, al igual que `Pi`, que se exporta desde el paquete `math`.
 
-`pizza` and `pi` do not start with a capital letter, so they are not exported.
+Aquí `pizza` y `pi` no comienzan con una letra mayúscula, por lo que no se exportan.
 
-When importing a package, you can refer only to its exported names.
-Any "unexported" names are not accessible from outside the package.
+Al importar un paquete, solo se puede hacer referencia a sus nombres exportados.
+Cualquier nombre "no exportado" no es accesible desde fuera del paquete.
 
-Run the code. Notice the error message.
+Ejecute el código. Observe el mensaje de error.
 
-To fix the error, rename `math.pi` to `math.Pi` and try it again.
+Para corregir el error, cambie el nombre de `math.pi` a `math.Pi` y vuelva a intentarlo.
 
 .play basics/exported-names.go
 
-* Functions
+* Funciones
 
-A function can take zero or more arguments.
+Una función puede tomar cero o más argumentos.
 
-In this example, `add` takes two parameters of type `int`.
+En el ejemplo que se muestra a la derecha, `add` toma dos parámetros de tipo `int`.
 
-Notice that the type comes _after_ the variable name.
+Observar que el tipo viene _después_ del nombre de la variable.
 
-(For more about why types look the way they do, see the [[https://blog.golang.org/gos-declaration-syntax][article on Go's declaration syntax]].)
+(Para obtener más información sobre por qué los tipos tienen el aspecto que tienen, consulte el [[https://blog.golang.org/gos-declaration-syntax][artículo sobre la sintaxis de declaración de Go]].)
 
 .play basics/functions.go
 
-* Functions continued
+* Funciones continuación
 
-When two or more consecutive named function parameters share a type, you can omit the type from all but the last.
+Cuando dos o más parámetros de función con nombre consecutivos comparten el mismo tipo, se puede omitir el tipo de todos menos del último.
 
-In this example, we shortened
+En el ejemplo, se acorta
 
 	x int, y int
 
-to
+a:
 
 	x, y int
 
 .play basics/functions-continued.go
 
-* Multiple results
+* Múltiples resultados
 
-A function can return any number of results.
+Una función puede devolver cualquier número de resultados.
 
-The `swap` function returns two strings.
+La función `swap` mostrada a la derecha devuelve dos cadenas de texto.
 
 .play basics/multiple-results.go
 
-* Named return values
+* Valores de retorno con nombre
 
-Go's return values may be named. If so, they are treated as variables defined at the top of the function.
+Los valores de retorno de Go pueden ser nombrados. Si es así, se tratan como variables definidas en la parte superior de la función.
 
-These names should be used to document the meaning of the return values.
+Estos nombres deben utilizarse para documentar el significado de los valores devueltos.
 
-A `return` statement without arguments returns the named return values. This is known as a "naked" return.
+Una instrucción `return` sin argumentos devuelve los valores de retorno nombrados. Esto se conoce como retorno "desnudo" ("naked" return).
 
-Naked return statements should be used only in short functions, as with the example shown here. They can harm readability in longer functions.
+Las declaraciones de retorno desnudas deben usarse solo en funciones cortas, como en el ejemplo que se muestra aquí a la derecha. En funciones más largas pueden dañar la legibilidad.
 
 .play basics/named-results.go
 
 * Variables
 
-The `var` statement declares a list of variables; as in function argument lists, the type is last.
+La instrucción `var` declara una lista de variables; como en las listas de argumentos de función, el tipo es el último en la declaración.
 
-A `var` statement can be at package or function level. We see both in this example.
+Una sentencia `var` puede estar a nivel de paquete o de función. Ambos se muestran en el ejemplo de la derecha.
 
 .play basics/variables.go
 
-* Variables with initializers
+* Variables con inicializadores
 
-A var declaration can include initializers, one per variable.
+Una declaración var puede incluir inicializadores, uno por variable.
 
-If an initializer is present, the type can be omitted; the variable will take the type of the initializer.
+Si hay un inicializador, se puede omitir el tipo; la variable tomará el tipo del inicializador.
+
+Como se muestra en el ejemplo de la derecha se inicializan sin tipo.
 
 .play basics/variables-with-initializers.go
 
-* Short variable declarations
+* Declaración corta de variables 
 
-Inside a function, the `:=` short assignment statement can be used in place of a `var` declaration with implicit type.
+Sólo dentro de una función, la declaración de asignación corta `:=` se puede usar en lugar de una declaración `var` con tipo implícito.
 
-Outside a function, every statement begins with a keyword (`var`, `func`, and so on) and so the `:=` construct is not available.
+Fuera de una función, cada declaración comienza con una palabra clave (`var`, `func`, etc.), por lo que la construcción `:=` no está disponible en ese ámbito superior.
 
 .play basics/short-variable-declarations.go
 
