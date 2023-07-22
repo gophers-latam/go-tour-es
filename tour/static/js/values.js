@@ -9,23 +9,23 @@ angular.module('tour.values', []).
 // List of modules with description and lessons in it.
 value('tableOfContents', [{
     'id': 'mechanics',
-    'title': 'Using the tour',
-    'description': '<p>Welcome to a tour of the <a href="https://golang.org">Go programming language</a>. The tour covers the most important features of the language, mainly:</p>',
+    'title': 'Usando el tour',
+    'description': '<p>Bienvenido a un recorrido por el <a href="https://golang.org">lenguaje de programación Go</a>. El tour cubre las características más importantes del lenguaje, principalmente:</p>',
     'lessons': ['welcome']
 }, {
     'id': 'basics',
-    'title': 'Basics',
-    'description': '<p>The starting point, learn all the basics of the language.</p><p>Declaring variables, calling functions, and all the things you need to know before moving to the next lessons.</p>',
+    'title': 'Lo básico',
+    'description': '<p>El punto de partida, aprender todos los conceptos básicos del idioma.</p><p>Declarar variables, llamar a funciones y todo lo que se necesita saber antes de pasar a las siguientes lecciones.</p>',
     'lessons': ['basics', 'flowcontrol', 'moretypes']
 }, {
     'id': 'methods',
-    'title': 'Methods and interfaces',
-    'description': '<p>Learn how to define methods on types, how to declare interfaces, and how to put everything together.</p>',
+    'title': 'Métodos e interfaces',
+    'description': '<p>Aprenda a cómo definir métodos en tipos, cómo declarar interfaces y cómo poner todo junto.</p>',
     'lessons': ['methods']
 }, {
     'id': 'concurrency',
-    'title': 'Concurrency',
-    'description': '<p>Go provides concurrency features as part of the core language.</p><p>This module goes over goroutines and channels, and how they are used to implement different concurrency patterns.</p>',
+    'title': 'Concurrencia',
+    'description': '<p>Go proporciona características de concurrencia como parte central del lenguaje.</p><p>Este módulo hace repaso de gorutinas y los canales, y cómo se utilizan para implementar diferentes patrones de concurrencia.</p>',
     'lessons': ['concurrency']
 }]).
 
