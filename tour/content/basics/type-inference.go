@@ -1,3 +1,4 @@
+//go:build OMIT
 // +build OMIT
 
 package main
@@ -5,6 +6,6 @@ package main
 import "fmt"
 
 func main() {
-	v := 42 // change me!
-	fmt.Printf("v is of type %T\n", v)
+	v := 42 // cambiame!
+	fmt.Printf("v es de tipo %T\n", v)
 }

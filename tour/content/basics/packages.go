@@ -1,3 +1,4 @@
+//go:build OMIT
 // +build OMIT
 
 package main
@@ -8,5 +9,5 @@ import (
 )
 
 func main() {
-	fmt.Println("My favorite number is", rand.Intn(10))
+	fmt.Println("Mi número favorito es", rand.Intn(10))
 }
