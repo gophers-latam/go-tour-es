@@ -5,7 +5,7 @@ package main
 import "fmt"
 
 func main() {
-	defer fmt.Println("world")
+	defer fmt.Println("mundo")
 
-	fmt.Println("hello")
+	fmt.Println("hola")
 }
