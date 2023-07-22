@@ -39,7 +39,7 @@ En ese punto puedes soltar los puntos y coma: El `while` de C se escribe `for` e
 
 .play flowcontrol/for-is-gos-while.go
 
-* Para siempre
+* For Infinito
 
 Si omite la condición del bucle, se repetira para siempre, por lo que un bucle infinito se expresa de forma compacta.
 
@@ -56,7 +56,7 @@ estar rodeada de paréntesis `(`)` pero las llaves `{`}` son requeridas.
 
 Al igual que `for`, la declaración `if` puede comenzar con una breve declaración para ejecutar antes de la condición.
 
-Las variables declaradas por declaración solo están en el alcance hasta el final del `if`.
+Las variables declaradas por la instrucción solo están en el alcance hasta el final del `if`.
 
 (Intenta usar `v` en la ultima declaración `return`)
 
@@ -89,7 +89,7 @@ Implementa esto en la función `func`Sqrt` proporcionada.
 Un buen punto de partida para z es 1, independientemente de la entrada.
 Para empezar, repite el calculo 10 veces e imprime cada z por el camino.
 Comprueba lo cerca que estés de la respuesta para distintos valores de x (1, 2, 3, ...)
-y que lo rápido que mejora la estimación.
+y lo rápido que mejora la estimación.
 
 Pista: Para declarar e inicializar un valor de punto flotante,
 dale una sintaxis de punto flotante o utiliza una conversión:
@@ -98,7 +98,7 @@ dale una sintaxis de punto flotante o utiliza una conversión:
 	z := float64(1)
 
 A continuación, cambie la condición del bucle para que se detenga una vez que el valor haya dejado de 
-cambiar (o solo cambie una cantidad muy pequeña).
+cambiar (o solo cambie por una cantidad muy pequeña).
 Compruebe si son mas o menos de 10 iteraciones.
 Pruebe otras conjeturas iniciales para z, como x, o x/2.
 ¿Que tan cerca están los resultados de tu función de [[https://golang.org/pkg/math/#Sqrt][math.Sqrt]] en la biblioteca estandar?
@@ -118,7 +118,7 @@ Ejecuta el primer caso cuyo valor es igual a la expresión de condición.
 
 El `switch` de Go es como el de C, C++, Java, JavaScript y PHP,
 excepto que Go sólo ejecuta el caso seleccionado, no todos los casos que le siguen.
-En efecto, la sentencia `break` que se necesita al final de cada caso en esos
+En efecto, la sentencia `break` que se necesita al final de cada caso en esos lenguajes
 se proporciona automáticamente en Go.
 Otra diferencia importante es que los casos switch de Go no necesitan
 ser constantes, y los valores involucrados no necesitan ser enteros.
@@ -146,7 +146,7 @@ no llama a `f` si `i==0`.)
 
 * Switch sin condición
 
-Switch sin una condición es lo mismo que `switch`verdadero`.
+Switch sin una condición es lo mismo que `switch`true`.
 
 Esta construcción puede ser una forma limpia de escribir largas cadenas if-then-else.
 
@@ -154,8 +154,7 @@ Esta construcción puede ser una forma limpia de escribir largas cadenas if-then
 
 * Defer
 
-Una instrucción defer, aplaza la ejecución de una función hasta que el entorno devuelve
-la función.
+Una instrucción defer, aplaza la ejecución de una función hasta el retorno de la funcion circundante (que la contiene).
 
 Los argumentos de la llamada diferida se evalúan inmediatamente, pero la llamada a la función
 no se ejecuta hasta que la función que la rodea retorna.
