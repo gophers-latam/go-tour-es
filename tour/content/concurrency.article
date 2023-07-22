@@ -1,55 +1,58 @@
-Concurrency
-Go provides concurrency constructions as part of the core language. This lesson presents them and gives some examples on how they can be used.
+Concurrencia
 
-The Go Authors
+Go provee construciones de concurrencia como parte del core del lenguaje. Esta lección presenta y entrega algunos ejemplos de como ellos pueden usarse.
+
+Los Autores de Go
 https://golang.org
 
-* Goroutines
+* Gorutinas
 
-A _goroutine_ is a lightweight thread managed by the Go runtime.
+Una _gorutina_ es un hilo ligero manejado por la runtime de Go.
+
 
 	go f(x, y, z)
 
-starts a new goroutine running
+inicia una nueva gorutina
 
 	f(x, y, z)
 
-The evaluation of `f`, `x`, `y`, and `z` happens in the current goroutine and the execution of `f` happens in the new goroutine.
+La evaluación de `f`, `x`, `y`, y `z` ocurre en la gorutina en curso y la ejecución de `f`  ocurre en la nueva gorutina.
 
-Goroutines run in the same address space, so access to shared memory must be synchronized. The [[https://golang.org/pkg/sync/][`sync`]] package provides useful primitives, although you won't need them much in Go as there are other primitives. (See the next slide.)
+Las gorutinas se ejecutan en el mismo espacio de direcciones, así que el acceso a memoria compartida debe estar sincronizado. El paquete [[https://golang.org/pkg/sync/][`sync`]] provee algunas primitivas utiles para ello, aunque ud. no las necesitará mucho en Go ya que hay otras primitivas. (Ver en la siguiente diapositiva)
 
 .play concurrency/goroutines.go
 
-* Channels
+* Canales
 
-Channels are a typed conduit through which you can send and receive values with the channel operator, `<-`.
+Canales son un conducto tipado a través del cual ud. puede envíar y recibir valores con el operador de canal, `<-`.
 
-	ch <- v    // Send v to channel ch.
-	v := <-ch  // Receive from ch, and
-	           // assign value to v.
+	ch <- v    // Envia v al canal ch.
+	v := <-ch  // Recive desde ch, y
+	           // asigna valor a v.
 
-(The data flows in the direction of the arrow.)
+(El flujo de los datos sigue la dirección de la flecha.)
 
-Like maps and slices, channels must be created before use:
+Como los mapas y slices, los canales deben crearse antes de usarse:
 
 	ch := make(chan int)
 
-By default, sends and receives block until the other side is ready. This allows goroutines to synchronize without explicit locks or condition variables.
+Por defecto, enviar y recibir a través de un canal bloquea hasta que el otro lado está listo. Esto permite a la gorutinas sincronizarce sin bloqueos explicitos o variables condicionales.
 
-The example code sums the numbers in a slice, distributing the work between two goroutines.
-Once both goroutines have completed their computation, it calculates the final result.
+El código de ejemplo suma los números en un slice, distribuyendo el trabajo entre dos gorutinas.
+Una vez que ambas gorutinas han completado sus cálculos, se calcula el resultado final.
 
 .play concurrency/channels.go
 
-* Buffered Channels
+* Canales con Buffer
 
-Channels can be _buffered_.  Provide the buffer length as the second argument to `make` to initialize a buffered channel:
+A los canales se les puede aplicar un _buffer_. Provea el largo del buffer como el segundo argumento para que `make` inicialice el canal con un buffer.
 
 	ch := make(chan int, 100)
 
-Sends to a buffered channel block only when the buffer is full. Receives block when the buffer is empty.
+Envíos a un canal con buffer bloquean solo cuando el buffer esta lleno. Recepciones bloquean cuando el buffer está vacio.
 
-Modify the example to overfill the buffer and see what happens.
+Modifique el ejemplo para sobrepasar el buffer y ver que pasa.
+
 
 .play concurrency/buffered-channels.go
 
