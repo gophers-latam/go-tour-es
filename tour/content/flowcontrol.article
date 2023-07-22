@@ -1,178 +1,179 @@
-Flow control statements: for, if, else, switch and defer
-Learn how to control the flow of your code with conditionals, loops, switches and defers.
+Declaración de control de flujo: for, if, else, switch y defer
+Aprende a como controlar el flujo de tu código  con condicionales, loops, switches y defers.
 
-The Go Authors
+Los autores de Go
 https://golang.org
 
 * For
 
-Go has only one looping construct, the `for` loop.
+Go solo tiene una estructura de bucle, el bucle `for`.
 
-The basic `for` loop has three components separated by semicolons:
+El bucle `for` básico tiene tres componentes separados por punto y coma:
 
-- the init statement: executed before the first iteration
-- the condition expression: evaluated before every iteration
-- the post statement: executed at the end of every iteration
+- La declaración inicial: ejecutada antes de la primera iteración
+- La expresión de la condición: evaluada antes de cada iteración
+- La declaración posterior: ejecutada al final de cada iteración
 
-The init statement will often be a short variable declaration, and the
-variables declared there are visible only in the scope of the `for`
-statement.
+La declaración de inicio sera a menudo una declaración de variable corta, y las
+variables declaradas alli son visibles solo en el ambito de la declaración `for`.
 
-The loop will stop iterating once the boolean condition evaluates to `false`.
+El loop se detendrá una vez que la condición booleana evalué a falso.
 
-*Note:* Unlike other languages like C, Java, or JavaScript there are no parentheses
-surrounding the three components of the `for` statement and the braces `{`}` are
-always required.
+
+
+*Nota:* a diferencia de otros lenguajes como C, Java, o JavaScript no hay paréntesis
+alrededor de los tres componentes de la declaración `for` y las llaves `{`}` son
+siempre requeridas.
 
 .play flowcontrol/for.go
 
-* For continued
+* For continuo
 
-The init and post statements are optional.
+La instrucción inicial y posterior son opcionales.
 
 .play flowcontrol/for-continued.go
 
-* For is Go's "while"
+* For es el while de Go.
 
-At that point you can drop the semicolons: C's `while` is spelled `for` in Go.
+En ese punto puedes soltar los puntos y coma: El `while` de C se escribe `for` en Go.
 
 .play flowcontrol/for-is-gos-while.go
 
-* Forever
+* Para siempre
 
-If you omit the loop condition it loops forever, so an infinite loop is compactly expressed.
+Si omite la condición del bucle, se repetira para siempre, por lo que un bucle infinito se expresa de forma compacta.
 
 .play flowcontrol/forever.go
 
 * If
 
-Go's `if` statements are like its `for` loops; the expression need not be
-surrounded by parentheses `(`)` but the braces `{`}` are required.
+La declaración `if` de Go son como si fueran bucles `for`; la expresión no necesita
+estar rodeada de paréntesis `(`)` pero las llaves `{`}` son requeridas.
 
 .play flowcontrol/if.go
 
-* If with a short statement
+* If con una breve declaración
 
-Like `for`, the `if` statement can start with a short statement to execute before the condition.
+Al igual que `for`, la declaración `if` puede comenzar con una breve declaración para ejecutar antes de la condición.
 
-Variables declared by the statement are only in scope until the end of the `if`.
+Las variables declaradas por declaración solo están en el alcance hasta el final del `if`.
 
-(Try using `v` in the last `return` statement.)
+(Intenta usar `v` en la ultima declaración `return`)
 
 .play flowcontrol/if-with-a-short-statement.go
 
-* If and else
+* If y else
 
-Variables declared inside an `if` short statement are also available inside any
-of the `else` blocks.
+Las variables declaradas dentro de una declaración corta `if` también están disponibles dentro de 
+cualquiera de los bloques `else`.
 
-(Both calls to `pow` return their results before the call to `fmt.Println`
-in `main` begins.)
+(Ambas llamadas a `pow` devuelven sus resultados antes de la llamada a `fmt.Println`
+en el comienzo de `main`)
 
 .play flowcontrol/if-and-else.go
 
-* Exercise: Loops and Functions
+* Ejercicio: Bucles y Funciones
 
-As a way to play with functions and loops, let's implement a square root function: given a number x, we want to find the number z for which z² is most nearly x.
+Como una forma de jugar con funciones y bucles, implementemos una función de raíz cuadrada: dado un numero X, queremos encontrar el numero z para el cual z² es mas cercano a x.
 
-Computers typically compute the square root of x using a loop.
-Starting with some guess z, we can adjust z based on how close z² is to x,
-producing a better guess:
+Los ordenadores suelen calcular la raíz cuadrada de x mediante un bucle.
+Partiendo de una estimación z, podemos ajustar z en función de que lo cerca que este z² de x,
+produciendo una mejor estimación: 
 
 	z -= (z*z - x) / (2*z)
 
-Repeating this adjustment makes the guess better and better
-until we reach an answer that is as close to the actual square root as can be.
+La repetición de este ajuste hace que la suposición sea cada vez mejor hasta llegar
+a una respuesta lo mas cercana posible a la raíz cuadrada real.
 
-Implement this in the `func`Sqrt` provided.
-A decent starting guess for z is 1, no matter what the input.
-To begin with, repeat the calculation 10 times and print each z along the way.
-See how close you get to the answer for various values of x (1, 2, 3, ...)
-and how quickly the guess improves.
+Implementa esto en la función `func`Sqrt` proporcionada.
+Un buen punto de partida para z es 1, independientemente de la entrada.
+Para empezar, repite el calculo 10 veces e imprime cada z por el camino.
+Comprueba lo cerca que estés de la respuesta para distintos valores de x (1, 2, 3, ...)
+y que lo rápido que mejora la estimación.
 
-Hint: To declare and initialize a floating point value,
-give it floating point syntax or use a conversion:
+Pista: Para declarar e inicializar un valor de punto flotante,
+dale una sintaxis de punto flotante o utiliza una conversión:
 
 	z := 1.0
 	z := float64(1)
 
-Next, change the loop condition to stop once the value has stopped
-changing (or only changes by a very small amount).
-See if that's more or fewer than 10 iterations.
-Try other initial guesses for z, like x, or x/2.
-How close are your function's results to the [[https://golang.org/pkg/math/#Sqrt][math.Sqrt]] in the standard library?
+A continuación, cambie la condición del bucle para que se detenga una vez que el valor haya dejado de 
+cambiar (o solo cambie una cantidad muy pequeña).
+Compruebe si son mas o menos de 10 iteraciones.
+Pruebe otras conjeturas iniciales para z, como x, o x/2.
+¿Que tan cerca están los resultados de tu función de [[https://golang.org/pkg/math/#Sqrt][math.Sqrt]] en la biblioteca estandar?
 
-(*Note:* If you are interested in the details of the algorithm, the z² − x above
-is how far away z² is from where it needs to be (x), and the division by 2z is the derivative
-of z², to scale how much we adjust z by how quickly z² is changing.
-This general approach is called [[https://en.wikipedia.org/wiki/Newton%27s_method][Newton's method]].
-It works well for many functions but especially well for square root.)
+(*Nota:* Si te interesan los detalles del algoritmo, el z² - x anterior
+es lo lejos que está z² de donde tiene que estar (x), y la división por 2z es la derivada
+de z², para escalar cuánto ajustamos z en función de lo rápido que cambia z².
+Este enfoque general se llama [[https://en.wikipedia.org/wiki/Newton%27s_method][método de Newton]].
+Funciona bien para muchas funciones, pero especialmente bien para la raíz cuadrada).
 
 .play flowcontrol/exercise-loops-and-functions.go
 
 * Switch
 
-A `switch` statement is a shorter way to write a sequence of `if`-`else` statements.
-It runs the first case whose value is equal to the condition expression.
+Una sentencia `switch` es una forma corta de escribir una secuencia de sentencias `if`-`else`.
+Ejecuta el primer caso cuyo valor es igual a la expresión de condición.
 
-Go's switch is like the one in C, C++, Java, JavaScript, and PHP,
-except that Go only runs the selected case, not all the cases that follow.
-In effect, the `break` statement that is needed at the end of each case in those
-languages is provided automatically in Go.
-Another important difference is that Go's switch cases need not
-be constants, and the values involved need not be integers.
+El `switch` de Go es como el de C, C++, Java, JavaScript y PHP,
+excepto que Go sólo ejecuta el caso seleccionado, no todos los casos que le siguen.
+En efecto, la sentencia `break` que se necesita al final de cada caso en esos
+se proporciona automáticamente en Go.
+Otra diferencia importante es que los casos switch de Go no necesitan
+ser constantes, y los valores involucrados no necesitan ser enteros.
 
 .play flowcontrol/switch.go
 
-* Switch evaluation order
+* Orden de evaluación de Switch
 
-Switch cases evaluate cases from top to bottom, stopping when a case succeeds.
+Switch evalúa los casos de arriba a abajo, deteniéndose cuando un caso tiene éxito.
 
-(For example,
+(Por ejemplo,
 
 	switch i {
 	case 0:
 	case f():
 	}
 
-does not call `f` if `i==0`.)
+no llama a `f` si `i==0`.)
 
-#appengine: *Note:* Time in the Go playground always appears to start at
-#appengine: 2009-11-10 23:00:00 UTC, a value whose significance is left as an
-#appengine: exercise for the reader.
+#appengine: *Nota:* El tiempo en Go Playground siempre parece empezar en
+#appengine: 2009-11-10 23:00:00 UTC, un valor cuyo significado se deja como
+#appengine: ejercicio para los lectores.
 
 .play flowcontrol/switch-evaluation-order.go
 
-* Switch with no condition
+* Switch sin condición
 
-Switch without a condition is the same as `switch`true`.
+Switch sin una condición es lo mismo que `switch`verdadero`.
 
-This construct can be a clean way to write long if-then-else chains.
+Esta construcción puede ser una forma limpia de escribir largas cadenas if-then-else.
 
 .play flowcontrol/switch-with-no-condition.go
 
 * Defer
 
-A defer statement defers the execution of a function until the surrounding
-function returns.
+Una instrucción defer, aplaza la ejecución de una función hasta que el entorno devuelve
+la función.
 
-The deferred call's arguments are evaluated immediately, but the function call
-is not executed until the surrounding function returns.
+Los argumentos de la llamada diferida se evalúan inmediatamente, pero la llamada a la función
+no se ejecuta hasta que la función que la rodea retorna.
 
 .play flowcontrol/defer.go
 
-* Stacking defers
+* Apilando defers
 
-Deferred function calls are pushed onto a stack. When a function returns, its
-deferred calls are executed in last-in-first-out order.
+Las llamadas a funciones diferidas se introducen en una pila. Cuando una función retorna, sus
+llamadas diferidas se ejecutan en orden de último en entrar, primero en salir.
 
-To learn more about defer statements read this
-[[https://blog.golang.org/defer-panic-and-recover][blog post]].
+Para aprender mas acerca de la declaración defer lea esto
+[[https://blog.golang.org/defer-panic-and-recover][defer panic y recover]].
 
 .play flowcontrol/defer-multi.go
 
-* Congratulations!
+* Felicitaciones!
 
-You finished this lesson!
+¡Has terminado esta lección!
 
-You can go back to the list of [[/list][modules]] to find what to learn next, or continue with the [[javascript:click('.next-page')][next lesson]].
+Puedes ir hacia atrás de la lista de [[/list][módulos]] para saber que aprender a continuación, o sigue con la [[javascript:click('.next-page')][proxima lección]].
