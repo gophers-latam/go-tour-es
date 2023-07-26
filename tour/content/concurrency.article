@@ -56,33 +56,33 @@ Modifique el ejemplo para sobrepasar el buffer y ver que pasa.
 
 .play concurrency/buffered-channels.go
 
-* Range and Close
+* Range y Close
 
-A sender can `close` a channel to indicate that no more values will be sent. Receivers can test whether a channel has been closed by assigning a second parameter to the receive expression: after
+Quien envía a través de un canal puede `cerrarlo` para indicar que no se enviaran mas valores por el. Receptores pueden probar si un canal ha sido cerrado asignando un segundo un segundo parámetro a la expresión: 
 
 	v, ok := <-ch
 
-`ok` is `false` if there are no more values to receive and the channel is closed.
+`ok` es `false` si no hay mas valores para recibir y el canal está cerrado.
 
-The loop `for`i`:=`range`c` receives values from the channel repeatedly until it is closed.
+El loop `for`i`:=`range`c` recive valores desde el canal repetidamente hasta que se cierra.
 
-*Note:* Only the sender should close a channel, never the receiver. Sending on a closed channel will cause a panic.
+*Nota:* Solo quien envía debería cerrar un canal, nunca el receptor. Envíar a un canal cerrado causara un panic.
 
-*Another*note:* Channels aren't like files; you don't usually need to close them. Closing is only necessary when the receiver must be told there are no more values coming, such as to terminate a `range` loop.
+*Otra*nota:* Los canales no son archivos; usualmente no necesitas cerrarlos. Cerrarlos es solo necesario cuando el receptor debe ser avisado de que no llegarán mas valores, por ejemplo, para terminar un loop `range`.
 
 .play concurrency/range-and-close.go
 
 * Select
 
-The `select` statement lets a goroutine wait on multiple communication operations.
+El estamento `select` permite que una gorutina espere a multiples operaciones de comunicación.
 
-A `select` blocks until one of its cases can run, then it executes that case.  It chooses one at random if multiple are ready.
+Un `select` bloquea hasta que uno de sus cases pueda ejecutarse, entonces lo ejecuta. Escoge un case al azar si varios de ellos están listos.
 
 .play concurrency/select.go
 
-* Default Selection
+* Selección por Default
 
-The `default` case in a `select` is run if no other case is ready.
+El case `default` en un `select` se ejecuta si no hay otro case listo.
 
 Use a `default` case to try a send or receive without blocking:
 
@@ -95,15 +95,15 @@ Use a `default` case to try a send or receive without blocking:
 
 .play concurrency/default-selection.go
 
-* Exercise: Equivalent Binary Trees
+* Ejercicio: Arboles binarios equivalentes
 
-There can be many different binary trees with the same sequence of values stored in it. For example, here are two binary trees storing the sequence 1, 1, 2, 3, 5, 8, 13.
+Pueden haber diferentes tipos de arboles binarios con la misma secuencia de valores. Por ejemplo, aquí hay dos arboles binarios guardando la secuencia 1, 1, 2, 3, 5, 8, 13.
 
 .image /content/img/tree.png
 
-A function to check whether two binary trees store the same sequence is quite complex in most languages. We'll use Go's concurrency and channels to write a simple solution.
+Una función para verificar si dos arboles binarios guardan la misma secuencia es bastante compleja en otros lenguajes. Usaremos la concurrencia y los canales de Go para escribir una solución simple.
 
-This example uses the `tree` package, which defines the type:
+Este ejemplo usa el paquete `tree`, el cual define el tipo:
 
 	type Tree struct {
 		Left  *Tree
@@ -114,27 +114,27 @@ This example uses the `tree` package, which defines the type:
 
 Continue description on [[javascript:click('.next-page')][next page]].
 
-* Exercise: Equivalent Binary Trees
+* Ejercicio: Arboles binarios equivalentes.
 
-*1.* Implement the `Walk` function.
+*1.* Implemente la función `Walk`.
 
-*2.* Test the `Walk` function.
+*2.* Pruebe la función `Walk`.
 
-The function `tree.New(k)` constructs a randomly-structured (but always sorted) binary tree holding the values `k`, `2k`, `3k`, ..., `10k`.
+La función `tree.New(k)` construye un aleatoreamente estructurado (pero siempre ordenado) árbol binario conteniendo los valores `k`, `2k`, `3k`, ..., `10k`.
 
-Create a new channel `ch` and kick off the walker:
+Crea un nuevo canal `ch` e inicia el recorrido:
 
 	go Walk(tree.New(1), ch)
 
-Then read and print 10 values from the channel. It should be the numbers 1, 2, 3, ..., 10.
+Entonces lee e imprime 10 valores por el canal. Deberían ser los números 1, 2, 3, ..., 10.
 
-*3.* Implement the `Same` function using `Walk` to determine whether `t1` and `t2` store the same values.
+*3.* Implemente la función `Same` usando `Walk` para determinar si `t1` y `t2` almacenan los mismos valores.
 
-*4.* Test the `Same` function.
+*4.* Pruebe la función `Same`.
 
-`Same(tree.New(1),`tree.New(1))` should return true, and `Same(tree.New(1),`tree.New(2))` should return false.
+`Same(tree.New(1),`tree.New(1))` debería devolver true, y `Same(tree.New(1),`tree.New(2))` debería devolver false.
 
-The documentation for `Tree` can be found [[https://godoc.org/golang.org/x/tour/tree#Tree][here]].
+Puede encontrar la documentación de `Tree` [[https://godoc.org/golang.org/x/tour/tree#Tree][aquí]].
 
 .play concurrency/exercise-equivalent-binary-trees.go
 
@@ -183,9 +183,9 @@ The
 start.
 It contains references, tutorials, videos, and more.
 
-To learn how to organize and work with Go code, read [[https://golang.org/doc/code][How to Write Go Code]].
+Para aprender a organizar y trabajar con código Go, lea [[https://golang.org/doc/code][Como escribir código Go]].
 
-If you need help with the standard library, see the [[https://golang.org/pkg/][package reference]]. For help with the language itself, you might be surprised to find the [[https://golang.org/ref/spec][Language Spec]] is quite readable.
+si necesita ayuda con la librería estándar, vea la [[https://golang.org/pkg/][referencia de paqueres]]. Para ayuda cone l lenguaje en sí, podría sorprenderse al ver que la [[https://golang.org/ref/spec][Especificación del Lenguage]] es bastante legible.
 
 To further explore Go's concurrency model, watch
 [[https://www.youtube.com/watch?v=f6kdp27TYZs][Go Concurrency Patterns]]
