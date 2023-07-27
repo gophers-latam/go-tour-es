@@ -1,197 +1,197 @@
-Methods and interfaces
-This lesson covers methods and interfaces, the constructs that define objects and their behavior.
+Metodos y interfaces
+Esta leccion, cubre metodos y interfaces, las construcciones que definen los objetos y su compartamiento.
 
-The Go Authors
+Los autores de Go
 https://golang.org
 
-* Methods
+* Metodos
 
-Go does not have classes.
-However, you can define methods on types.
+Go no tiene clases.
+Sin embargo, puedes definir metodos en tipos.
 
-A method is a function with a special _receiver_ argument.
+Un metodo es una funcion con un argumento _receptor_ especial.
 
-The receiver appears in its own argument list between the `func` keyword and
-the method name.
+El receptor aparece en su propio argumento entre la palabra clave `func` y 
+el nombre del metodo.
 
-In this example, the `Abs` method has a receiver of type `Vertex` named `v`.
+En este ejemplo, el metodo `Abs` tiene un receptor del tipo `Vertex` llamado `v`.
 
 .play methods/methods.go
 
-* Methods are functions
+* Los metodos son funciones
 
-Remember: a method is just a function with a receiver argument.
+Recuerda: un metodo es solo una funcion con un argumento receptor.
 
-Here's `Abs` written as a regular function with no change in functionality.
+Aqui `Abs` escrito como una funcion regular con ningun cambio en su funcionalidad.
 
 .play methods/methods-funcs.go
 
-* Methods continued
+* Metodos continuos
 
-You can declare a method on non-struct types, too.
+Tambien, puedes declarar un metodo en tipos que no son una estructura
 
-In this example we see a numeric type `MyFloat` with an `Abs` method.
+En este ejemplo, vemos un tipo numerico `MyFloat` con un metodo `Abs`.
 
-You can only declare a method with a receiver whose type is defined in the same
-package as the method.
-You cannot declare a method with a receiver whose type is defined in another
-package (which includes the built-in types such as `int`).
+Solo puedes declarar un metodo con un receptor cuyo tipo este definido en el mismo
+paquete como el metodo.
+No puedes declarar un metodo con un receptor cuyo tipo este definido en otro
+paquete (que incluye los tipos integrados como `int`)
 
 .play methods/methods-continued.go
 
-* Pointer receivers
+* Receptores de puntero
 
-You can declare methods with pointer receivers.
+Puedes declarar metodos con receptores de puntero.
 
-This means the receiver type has the literal syntax `*T` for some type `T`.
-(Also, `T` cannot itself be a pointer such as `*int`.)
+Esto significa que el tipo de receptor tiene la sintaxis literal `*T` para algun tipo `T`.
+(Ademas, `T` no puede ser un puntero como `*int`.)
 
-For example, the `Scale` method here is defined on `*Vertex`.
+Por ejemplo, aca el metodo `Scale` se define en `*Vertex`. 
 
-Methods with pointer receivers can modify the value to which the receiver
-points (as `Scale` does here).
-Since methods often need to modify their receiver, pointer receivers are more
-common than value receivers.
+Metodos con receptores de punteros pueden modificar el valor al que el receptor
+apunta (como `Scale` lo hace aqui).
+Dado que los metodos a menudo necesitan modificar su receptor, los receptores de punteros son mas
+comunes que los receptores de valores.
 
-Try removing the `*` from the declaration of the `Scale` function on line 16
-and observe how the program's behavior changes.
+Prueba eliminando el signo `*` de la declaracion de la funcion `Scale` en la linea 16
+y observa como cambia el comportamiento del programa.
 
-With a value receiver, the `Scale` method operates on a copy of the original
-`Vertex` value.
-(This is the same behavior as for any other function argument.)
-The `Scale` method must have a pointer receiver to change the `Vertex` value
-declared in the `main` function.
+Con un receptor de valor, el metodo `Scale` opera en una copia del valor 
+`Vertex` original.
+(Este es el mismo compartamiento que para cualquier otro argumento de funcion.)
+El metodo `Scale` debe tener un puntero receptor para cambiar el valor de `Vertex`
+declarado en la funcion `main`.
 
 .play methods/methods-pointers.go
 
-* Pointers and functions
+* Punteros y funciones
 
 Here we see the `Abs` and `Scale` methods rewritten as functions.
 
-Again, try removing the `*` from line 16.
-Can you see why the behavior changes?
-What else did you need to change for the example to compile?
+Nuevamente, prueba eliminando el signo `*` de la linea 16
+¿Puedes ver porque el comportamiento cambia?
+¿Que mas necesitas cambiar para que el ejemplo compile?
 
-(If you're not sure, continue to the next page.)
+(Si no estas seguro, continue a la siguiente pagina.)
 
 .play methods/methods-pointers-explained.go
 
-* Methods and pointer indirection
+* Metodos y puntero indirecto
 
-Comparing the previous two programs, you might notice that
-functions with a pointer argument must take a pointer:
+Comparando los anteriores dos programas, podrias haber notado que
+funciones con un argumento de puntero deben tomar un puntero:
 
 	var v Vertex
-	ScaleFunc(v, 5)  // Compile error!
+	ScaleFunc(v, 5)  // Error de compilacion!
 	ScaleFunc(&v, 5) // OK
 
-while methods with pointer receivers take either a value or a pointer as the
-receiver when they are called:
+mientras que los metodos con receptores de puntero toman o un valor o un puntero como el
+receptor cuando ellos son llamados:
 
 	var v Vertex
 	v.Scale(5)  // OK
 	p := &v
 	p.Scale(10) // OK
 
-For the statement `v.Scale(5)`, even though `v` is a value and not a pointer,
-the method with the pointer receiver is called automatically.
-That is, as a convenience, Go interprets the statement `v.Scale(5)` as
-`(&v).Scale(5)` since the `Scale` method has a pointer receiver.
+para la declaracion `v.Scale(5)`, a pesar de que `v` es un valor y no un puntero,
+el metodo con el receptor de puntero es llamado automaticamente.
+esto es porque, como conveniencia, Go interpreta la declaracion `v.Scale(5)` como
+`(&v).Scale(5)` ya que el metodo `Scale` tiene un puntero receptor.
 
 .play methods/indirection.go
 
-* Methods and pointer indirection (2)
+* Metodos y puntero indirecto (2)
 
-The equivalent thing happens in the reverse direction.
+Lo equivalente ocurre en sentido inverso.
 
-Functions that take a value argument must take a value of that specific type:
+Las funciones que toman un argumento de valor deben tomar un valor de ese tipo especifico:
 
 	var v Vertex
 	fmt.Println(AbsFunc(v))  // OK
-	fmt.Println(AbsFunc(&v)) // Compile error!
+	fmt.Println(AbsFunc(&v)) // Error de compilacion!
 
-while methods with value receivers take either a value or a pointer as the
-receiver when they are called:
+Mientras que los metodos con receptores de valor toman un valor o un puntero como el
+receptor cuando son llamadas:
 
 	var v Vertex
 	fmt.Println(v.Abs()) // OK
 	p := &v
 	fmt.Println(p.Abs()) // OK
 
-In this case, the method call `p.Abs()` is interpreted as `(*p).Abs()`.
+En este caso, el metodo llama `p.Abs()` es interpretado como `(*p).Abs()`.
 
 .play methods/indirection-values.go
 
-* Choosing a value or pointer receiver
+* Eligiendo un valor o receptor de puntero
 
-There are two reasons to use a pointer receiver.
+Hay dos razones para usar un receptor de puntero.
 
-The first is so that the method can modify the value that its receiver points to.
+La primera es para que el metodo pueda modificar el valor al que apunta su receptor.
 
-The second is to avoid copying the value on each method call.
-This can be more efficient if the receiver is a large struct, for example.
+La segunda es para evitar copiar el valour en cada metodo llamado.
+Esto puede ser mas eficiente si el receptor es un struct largo, por ejemplo.
 
-In this example, both `Scale` and `Abs` are with receiver type `*Vertex`,
-even though the `Abs` method needn't modify its receiver.
+En este ejemplo, ambos `Scale` y `Abs` tienen el tipo de receptor `*Vertex`,
+aunque el metodo `Abs` no necesita modificar su receptor.
 
-In general, all methods on a given type should have either value or pointer
-receivers, but not a mixture of both.
-(We'll see why over the next few pages.)
+En general, todos los metodos de un tipo determinado deben tener un valor o un puntero
+receptor, pero no una mezcla de ambos.
+(Veremos el porque de esto en las siguentes paginas.)
 
 .play methods/methods-with-pointer-receivers.go
 
 * Interfaces
 
-An _interface_type_ is defined as a set of method signatures.
+Un _interface_type_ se define como una conjunto de firmas de metodos 
 
-A value of interface type can hold any value that implements those methods.
+Un valor del tipo interface puede contener cualquier valor que se implemente en esos metodos.
 
-*Note:* There is an error in the example code on line 22.
-`Vertex` (the value type) doesn't implement `Abser` because
-the `Abs` method is defined only on `*Vertex` (the pointer type).
+*Nota:* Hay un error en el ejemplo del codigo en la linea 22.
+`Vertex` (el tipo de valor) no implementa `Abser` porque 
+el metodo `Abs` esta definido solo en `*Vertex` (el tipo de puntero).
 
 .play methods/interfaces.go
 
-* Interfaces are implemented implicitly
+* Interfaces implicitas
 
-A type implements an interface by implementing its methods.
-There is no explicit declaration of intent, no "implements" keyword.
+Un tipo implementa una interfaz implementando sus metodos.
+No hay un declaracion explicita de intenciones, ni la palabra clave "implements" 
 
-Implicit interfaces decouple the definition of an interface from its
-implementation, which could then appear in any package without prearrangement.
+Las interfaces implicitas desacoplan la definicion de una interfaz de su
+implementacion, que luego podria aparecer en cualquier paquete sin arreglo previo.
 
 .play methods/interfaces-are-satisfied-implicitly.go
 
-* Interface values
+* Valores de interfaz
 
-Under the hood, interface values can be thought of as a tuple of a value and a
-concrete type:
+debajo del capo, los valores de interfaz se pueden considerar como una tupla de un valor y un
+tipo en concreto:
 
-	(value, type)
+	(valor, tipo)
 
-An interface value holds a value of a specific underlying concrete type.
+Un valor de interfaz contiene un valor de un tipo concreto subyacente específico.
 
-Calling a method on an interface value executes the method of the same name on
-its underlying type.
+Llamar a un método en un valor de interfaz ejecuta el método del mismo nombre en
+su tipo subyacente.
 
 .play methods/interface-values.go
 
-* Interface values with nil underlying values
+* Valores de interfaz con valores subyacentes nulo
 
-If the concrete value inside the interface itself is nil,
-the method will be called with a nil receiver.
+Si el valor en concreto dentro de la propia interfaz es nulo,
+el metodo sera llamado con un receptor nulo.
 
-In some languages this would trigger a null pointer exception,
-but in Go it is common to write methods that gracefully handle being called
-with a nil receiver (as with the method `M` in this example.)
+En otros lenguajes esto activaria una excepcion de puntero nulo,
+pero en Go es comun escribir metodos que manejan con gracia ser llamados
+con un receptor nulo (como el metodo `M` en este ejemplo.)
 
-Note that an interface value that holds a nil concrete value is itself non-nil.
+Tenga en cuenta que un valor de interfaz que contiene un valor concreto nulo es en sí mismo no nulo.
 
 .play methods/interface-values-with-nil.go
 
-* Nil interface values
+* Valores de interfaz nulo
 
-A nil interface value holds neither value nor concrete type.
+Un valor de interfaz nulo no contiene ni un valor ni tipo en concreto.
 
 Calling a method on a nil interface is a run-time error because there is no
 type inside the interface tuple to indicate which _concrete_ method to call.
