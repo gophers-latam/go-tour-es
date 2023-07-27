@@ -13,14 +13,14 @@ type MyError struct {
 }
 
 func (e *MyError) Error() string {
-	return fmt.Sprintf("at %v, %s",
+	return fmt.Sprintf("a las %v, %s",
 		e.When, e.What)
 }
 
 func run() error {
 	return &MyError{
 		time.Now(),
-		"it didn't work",
+		"No funciono",
 	}
 }
 

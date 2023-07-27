@@ -5,7 +5,7 @@ package main
 import "fmt"
 
 func main() {
-	var i interface{} = "hello"
+	var i interface{} = "hola"
 
 	s := i.(string)
 	fmt.Println(s)

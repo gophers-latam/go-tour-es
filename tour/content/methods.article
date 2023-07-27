@@ -1,91 +1,91 @@
-Metodos y interfaces
-Esta leccion, cubre metodos y interfaces, las construcciones que definen los objetos y su compartamiento.
+Métodos e interfaces
+Esta lección, cubre métodos e interfaces, las construcciones que definen los objetos y su comportamiento.
 
 Los autores de Go
 https://golang.org
 
-* Metodos
+* Métodos
 
 Go no tiene clases.
-Sin embargo, puedes definir metodos en tipos.
+Sin embargo, puedes definir métodos en tipos.
 
-Un metodo es una funcion con un argumento _receptor_ especial.
+Un método es una función con un argumento _receptor_ especial.
 
 El receptor aparece en su propio argumento entre la palabra clave `func` y 
-el nombre del metodo.
+el nombre del método.
 
-En este ejemplo, el metodo `Abs` tiene un receptor del tipo `Vertex` llamado `v`.
+En este ejemplo, el método `Abs` tiene un receptor del tipo `Vertex` llamado `v`.
 
 .play methods/methods.go
 
-* Los metodos son funciones
+* Los métodos son funciones
 
-Recuerda: un metodo es solo una funcion con un argumento receptor.
+Recuerda: un método es solo una función con un argumento receptor.
 
-Aqui `Abs` escrito como una funcion regular con ningun cambio en su funcionalidad.
+Aquí `Abs` escrito como una función regular sin ningún cambio en su funcionalidad.
 
 .play methods/methods-funcs.go
 
-* Metodos continuos
+* Métodos continuos
 
-Tambien, puedes declarar un metodo en tipos que no son una estructura
+También, puedes declarar un método en tipos que no son una estructura
 
-En este ejemplo, vemos un tipo numerico `MyFloat` con un metodo `Abs`.
+En este ejemplo, vemos un tipo numerico `MyFloat` con un método `Abs`.
 
-Solo puedes declarar un metodo con un receptor cuyo tipo este definido en el mismo
-paquete como el metodo.
-No puedes declarar un metodo con un receptor cuyo tipo este definido en otro
+Solo puedes declarar un método con un receptor cuyo tipo este definido en el mismo
+paquete como el método.
+No puedes declarar un método con un receptor cuyo tipo este definido en otro
 paquete (que incluye los tipos integrados como `int`)
 
 .play methods/methods-continued.go
 
 * Receptores de puntero
 
-Puedes declarar metodos con receptores de puntero.
+Puedes declarar métodos con receptores de puntero.
 
-Esto significa que el tipo de receptor tiene la sintaxis literal `*T` para algun tipo `T`.
-(Ademas, `T` no puede ser un puntero como `*int`.)
+Esto significa que el tipo de receptor tiene la sintaxis literal `*T` para algún tipo `T`.
+(Además, `T` no puede ser un puntero como `*int`.)
 
-Por ejemplo, aca el metodo `Scale` se define en `*Vertex`. 
+Por ejemplo, acá el método `Scale` se define en `*Vertex`. 
 
-Metodos con receptores de punteros pueden modificar el valor al que el receptor
-apunta (como `Scale` lo hace aqui).
-Dado que los metodos a menudo necesitan modificar su receptor, los receptores de punteros son mas
+Los métodos con receptores de punteros pueden modificar el valor al que el receptor
+apunta (como `Scale` lo hace aquí).
+Dado que los métodos a menudo necesitan modificar su receptor, los receptores de punteros son mas
 comunes que los receptores de valores.
 
-Prueba eliminando el signo `*` de la declaracion de la funcion `Scale` en la linea 16
+Prueba eliminando el signo `*` de la declaración de la función `Scale` en la línea 16
 y observa como cambia el comportamiento del programa.
 
-Con un receptor de valor, el metodo `Scale` opera en una copia del valor 
+Con un receptor de valor, el método `Scale` opera en una copia del valor 
 `Vertex` original.
-(Este es el mismo compartamiento que para cualquier otro argumento de funcion.)
-El metodo `Scale` debe tener un puntero receptor para cambiar el valor de `Vertex`
-declarado en la funcion `main`.
+(Este es el mismo comportamiento que para cualquier otro argumento de función.)
+El método `Scale` debe tener un puntero receptor para cambiar el valor de `Vertex`
+declarado en la función `main`.
 
 .play methods/methods-pointers.go
 
 * Punteros y funciones
 
-Here we see the `Abs` and `Scale` methods rewritten as functions.
+Aquí vemos los métodos `Abs` y `Scale` reescritos como funciones.
 
-Nuevamente, prueba eliminando el signo `*` de la linea 16
+Nuevamente, prueba eliminando el signo `*` de la línea 16
 ¿Puedes ver porque el comportamiento cambia?
-¿Que mas necesitas cambiar para que el ejemplo compile?
+¿Qué mas necesitas cambiar para que el ejemplo compile?
 
-(Si no estas seguro, continue a la siguiente pagina.)
+(Si no esta seguro, continúe a la siguiente pagina.)
 
 .play methods/methods-pointers-explained.go
 
-* Metodos y puntero indirecto
+* Métodos y puntero indirecto
 
-Comparando los anteriores dos programas, podrias haber notado que
+Comparando los anteriores dos programas, podrías haber notado que
 funciones con un argumento de puntero deben tomar un puntero:
 
 	var v Vertex
-	ScaleFunc(v, 5)  // Error de compilacion!
+	ScaleFunc(v, 5)  // Error de compilación!
 	ScaleFunc(&v, 5) // OK
 
-mientras que los metodos con receptores de puntero toman o un valor o un puntero como el
+mientras que los métodos con receptores de puntero toman o un valor o un puntero como el
 receptor cuando ellos son llamados:
 
 	var v Vertex
@@ -93,24 +93,24 @@ receptor cuando ellos son llamados:
 	p := &v
 	p.Scale(10) // OK
 
-para la declaracion `v.Scale(5)`, a pesar de que `v` es un valor y no un puntero,
-el metodo con el receptor de puntero es llamado automaticamente.
-esto es porque, como conveniencia, Go interpreta la declaracion `v.Scale(5)` como
-`(&v).Scale(5)` ya que el metodo `Scale` tiene un puntero receptor.
+Para la declaración `v.Scale(5)`, a pesar de que `v` es un valor y no un puntero,
+el método con el receptor de puntero es llamado automáticamente.
+Esto es porque, como conveniencia, Go interpreta la declaración `v.Scale(5)` como
+`(&v).Scale(5)` ya que el método `Scale` tiene un puntero receptor.
 
 .play methods/indirection.go
 
-* Metodos y puntero indirecto (2)
+* Métodos y puntero indirecto (2)
 
 Lo equivalente ocurre en sentido inverso.
 
-Las funciones que toman un argumento de valor deben tomar un valor de ese tipo especifico:
+Las funciones que toman un argumento de valor deben tomar un valor de ese tipo específico:
 
 	var v Vertex
 	fmt.Println(AbsFunc(v))  // OK
-	fmt.Println(AbsFunc(&v)) // Error de compilacion!
+	fmt.Println(AbsFunc(&v)) // Error de compilación!
 
-Mientras que los metodos con receptores de valor toman un valor o un puntero como el
+Mientras que los métodos con receptores de valor toman un valor o un puntero como el
 receptor cuando son llamadas:
 
 	var v Vertex
@@ -118,7 +118,7 @@ receptor cuando son llamadas:
 	p := &v
 	fmt.Println(p.Abs()) // OK
 
-En este caso, el metodo llama `p.Abs()` es interpretado como `(*p).Abs()`.
+En este caso, el método llama `p.Abs()` es interpretado como `(*p).Abs()`.
 
 .play methods/indirection-values.go
 
@@ -126,39 +126,39 @@ En este caso, el metodo llama `p.Abs()` es interpretado como `(*p).Abs()`.
 
 Hay dos razones para usar un receptor de puntero.
 
-La primera es para que el metodo pueda modificar el valor al que apunta su receptor.
+La primera es para que el método pueda modificar el valor al que apunta su receptor.
 
-La segunda es para evitar copiar el valour en cada metodo llamado.
+La segunda es para evitar copiar el valor en cada método llamado.
 Esto puede ser mas eficiente si el receptor es un struct largo, por ejemplo.
 
 En este ejemplo, ambos `Scale` y `Abs` tienen el tipo de receptor `*Vertex`,
-aunque el metodo `Abs` no necesita modificar su receptor.
+aunque el método `Abs` no necesita modificar su receptor.
 
-En general, todos los metodos de un tipo determinado deben tener un valor o un puntero
+En general, todos los métodos de un tipo determinado deben tener un valor o un puntero
 receptor, pero no una mezcla de ambos.
-(Veremos el porque de esto en las siguentes paginas.)
+(Veremos el porqué de esto en las siguentes paginas.)
 
 .play methods/methods-with-pointer-receivers.go
 
 * Interfaces
 
-Un _interface_type_ se define como una conjunto de firmas de metodos 
+Un _interface_type_ se define como una conjunto de firmas de métodos 
 
-Un valor del tipo interface puede contener cualquier valor que se implemente en esos metodos.
+Un valor del tipo interface puede contener cualquier valor que se implemente en esos métodos.
 
-*Nota:* Hay un error en el ejemplo del codigo en la linea 22.
+*Nota:* Hay un error en el ejemplo del código en la línea 22.
 `Vertex` (el tipo de valor) no implementa `Abser` porque 
-el metodo `Abs` esta definido solo en `*Vertex` (el tipo de puntero).
+el método `Abs` esta definido solo en `*Vertex` (el tipo de puntero).
 
 .play methods/interfaces.go
 
-* Interfaces implicitas
+* Interfaces implícitas
 
-Un tipo implementa una interfaz implementando sus metodos.
-No hay un declaracion explicita de intenciones, ni la palabra clave "implements" 
+Un tipo implementa una interfaz implementando sus métodos.
+No hay una declaración explícita de intenciones, ni la palabra clave "implements" 
 
-Las interfaces implicitas desacoplan la definicion de una interfaz de su
-implementacion, que luego podria aparecer en cualquier paquete sin arreglo previo.
+Las interfaces implícitas desacoplan la definición de una interfaz de su
+implementación, que luego podría aparecer en cualquier paquete sin arreglo previo.
 
 .play methods/interfaces-are-satisfied-implicitly.go
 
@@ -179,11 +179,11 @@ su tipo subyacente.
 * Valores de interfaz con valores subyacentes nulo
 
 Si el valor en concreto dentro de la propia interfaz es nulo,
-el metodo sera llamado con un receptor nulo.
+el método será llamado con un receptor nulo.
 
-En otros lenguajes esto activaria una excepcion de puntero nulo,
-pero en Go es comun escribir metodos que manejan con gracia ser llamados
-con un receptor nulo (como el metodo `M` en este ejemplo.)
+En otros lenguajes esto activaría una excepción de puntero nulo,
+pero en Go es común escribir métodos que manejan con gracia ser llamados
+con un receptor nulo (como el método `M` en este ejemplo.)
 
 Tenga en cuenta que un valor de interfaz que contiene un valor concreto nulo es en sí mismo no nulo.
 

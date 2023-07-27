@@ -28,7 +28,7 @@ func (f F) M() {
 func main() {
 	var i I
 
-	i = &T{"Hello"}
+	i = &T{"Hola"}
 	describe(i)
 	i.M()
 
