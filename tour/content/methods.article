@@ -318,7 +318,7 @@ Un `error` nulo denota éxito; un `error` no nulo denota falla.
 
 * Ejercicio: Errores
 
-Copia la función `Sqrt` de [[/flowcontrol/8][ejercicio anterior]] y modifícalo para que retorne un valor de `error`.
+Copia la función `Sqrt` del [[/flowcontrol/8][ejercicio anterior]] y modifícalo para que retorne un valor de `error`.
 
 `Sqrt` debería de retornar un error no nulo cuando se le da un número negativo, ya que no admite números complejos.
 
@@ -343,7 +343,7 @@ Cambie su función `Sqrt` para devolver un valor `ErrNegativeSqrt` cuando se le 
 El paquete `io` específica la interfaz `io.Reader`,
 que representa el final de lectura de un flujo de datos.
 
-La libreríae estándar de Go contiene [[https://golang.org/search?q=Read#Global][muchas implementaciones]] de esta interfaz, incluidos archivos, conexiones de red, compresores, cifrados y otros.
+La librería estándar de Go contiene [[https://golang.org/search?q=Read#Global][muchas implementaciones]] de esta interfaz, incluidos archivos, conexiones de red, compresores, cifrados y otros.
 
 La interfaz `io.Reader` tiene un método `Read`:
 
@@ -370,7 +370,7 @@ Implementa un tipo `Reader` que emita un flujo infinito del carácter ASCII
 
 Un patrón común es un [[https://golang.org/pkg/io/#Reader][io.Reader]] que envuelve otro `io.Reader`, modificando el flujo de alguna manera.
 
-Por ejemplo, la [[https://golang.org/pkg/compress/gzip/#NewReader][gzip.NewReader]] función toma un `io.Reader` (un flujo de datos comprimidos) y devuelve un `*gzip.Reader` que también implementa `io.Reader` (un flujo de datos descomprimidos).
+Por ejemplo, la función [[https://golang.org/pkg/compress/gzip/#NewReader][gzip.NewReader]] toma un `io.Reader` (un flujo de datos comprimidos) y devuelve un `*gzip.Reader` que también implementa `io.Reader` (un flujo de datos descomprimidos).
 
 Implementar un `rot13reader` que implemente `io.reader` y lea desde un `io.reader`, modificando el flujo aplicando el cifrado de sustitución [[https://en.wikipedia.org/wiki/rot13][rot13]] a todos los caracteres alfabéticos.
 
@@ -381,7 +381,7 @@ Conviértalo en un `io.Reader` implementando su método `Read`.
 
 * Imágenes
 
-[[https://golang.org/pkg/image/#Image][Paquete image]] define la interfaz `Image`:
+[[https://golang.org/pkg/image/#Image][El paquete image]] define la interfaz `Image`:
 
 	package image
 
