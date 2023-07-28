@@ -1,3 +1,4 @@
+//go:build OMIT
 // +build OMIT
 
 package main
@@ -7,7 +8,7 @@ import (
 	"math"
 )
 
-func compute(fn func(float64, float64) float64) float64 {
+func calcular(fn func(float64, float64) float64) float64 {
 	return fn(3, 4)
 }
 
@@ -17,6 +18,6 @@ func main() {
 	}
 	fmt.Println(hypot(5, 12))
 
-	fmt.Println(compute(hypot))
-	fmt.Println(compute(math.Pow))
+	fmt.Println(calcular(hypot))
+	fmt.Println(calcular(math.Pow))
 }
