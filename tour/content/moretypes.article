@@ -1,5 +1,4 @@
 Más tipos: structs, slices y maps.
-
 Aprende a definir tipos basados en otros ya existentes: esta lección cubre structs, arrays, slices y maps.
 
 Los autores de Go
@@ -24,7 +23,7 @@ El operador `*` denota el valor subyacente del puntero.
 	fmt.Println(*p) // lee i a través del puntero p
 	*p = 21         // establece i a través del puntero p
 
-Esto se conoce como "dereferenciar" o "indirectar".
+Esto se conoce como "dereferenciar" o "indireccionar".
 
 A diferencia de C, Go no tiene aritmética de punteros.
 
@@ -32,7 +31,7 @@ A diferencia de C, Go no tiene aritmética de punteros.
 
 * Structs
 
-Una `struct` es una colección de campos.
+Un `struct` es una colección de campos.
 
 .play moretypes/structs.go
 
@@ -44,7 +43,7 @@ Los campos de struct se acceden usando un punto.
 
 * Punteros a structs
 
-Los campos de struct se pueden acceder a través de un puntero a struct.
+Los campos de struct se pueden acceder a través de un puntero a un struct.
 
 Para acceder al campo `X` de un struct cuando tenemos el puntero de struct `p` podríamos
 escribir `(*p).X`.
@@ -83,7 +82,6 @@ Go provee una forma conveniente de trabajar con arrays.
 
 * Slices
 
-An array has a fixed size.
 Un array tiene un tamaño fijo.
 Un slice, por otro lado, es una vista dinámicamente dimensionada
 y flexible de los elementos de un array.
@@ -100,7 +98,6 @@ superior, separados por dos puntos:
 Esto selecciona un rango semiabierto que incluye el primer
 elemento, pero excluye el último.
 
-The following expression creates a slice which includes
 La siguiente expresión crea un slice que incluye
 elementos 1 a 3 de `a`:
 
@@ -112,12 +109,12 @@ elementos 1 a 3 de `a`:
 * Los slices son como referencias a arrays
 
 Un slice no almacena ningún dato,
-son solo una descripción de una sección de un array subyacente.
+solo describe una sección de un array subyacente.
 
 Cambiar los elementos de un slice modifica los
 correspondientes elementos de su array subyacente.
 
-Otro slices que comparten el mismo array subyacente verán esos cambios.
+Otros slices que comparten el mismo array subyacente verán esos cambios.
 
 .play moretypes/slices-pointers.go
 
@@ -140,7 +137,7 @@ luego construye un slice que lo referencia:
 
 * Slice defaults
 
-Al crear el slice, se puede omitir los límites alto o bajo para usar sus valores predeterminados en su lugar.
+Al crear el slice, puedes omitir los límites alto o bajo para usar sus valores predeterminados en su lugar.
 
 El defecto es cero para el límite inferior y la longitud del slice para el límite superior.
 
@@ -160,7 +157,7 @@ estas expresiones de slice son equivalentes:
 
 * Longitud y capacidad de un slice
 
-Una slice tiene tanto una _longitud_ como una _capacidad_.
+Un slice tiene tanto una _longitud_ como una _capacidad_.
 
 La longitud de un slice es el número de elementos que contiene.
 
@@ -173,7 +170,7 @@ La longitud y la capacidad de un slice `s` se pueden obtener usando las expresio
 Puedes extender la longitud de un slice haciendo un re-slicing del mismo,
 siempre que tenga capacidad suficiente.
 Trata de cambiar una de las operaciones de slice en el programa de ejemplo para extenderlo
-mas allá de su capacidad y ve que sucede.
+mas allá de su capacidad y ve lo que sucede.
 
 .play moretypes/slice-len-cap.go
 
@@ -217,7 +214,6 @@ Los slices pueden contener cualquier tipo, incluyendo otros slices.
 
 * Agregando elementos a un slice
 
-It is common to append new elements to a slice, and so Go provides a built-in
 Es común agregar nuevos elementos a un slice, por lo que Go provee la función nativa
 `append`. La [[https://golang.org/pkg/builtin/#append][documentación]]
 del paquete nativo describe `append`.
@@ -328,7 +324,7 @@ Si `key` no está en `m`, entonces `elem` es el valor zero para el tipo de eleme
 
 * Ejercicio: Maps
 
-Implementa `WordCount`. Debe retornar un map con la cantidad de veces que aparece cada "palabra" en el string `s`. La función `wc.Test` ejecuta un conjunto de tests contra la función provista e imprime éxito o fallo.
+Implementa `WordCount`. Debe retornar un map con la cantidad de veces que aparece cada "palabra" en el string `s`. La función `wc.Test` ejecuta un conjunto de tests contra la función provista e imprime el éxito o fallo.
 
 Puedes encontrar [[https://golang.org/pkg/strings/#Fields][strings.Fields]] útil.
 
@@ -346,7 +342,7 @@ Los valores de función pueden ser usados como argumentos de funciones y valores
 
 Las funciones de Go pueden ser closures. Un closure es un valor de función que referencia variables fuera de su cuerpo. La función puede acceder y asignar a las variables referenciadas; en este sentido la función está "ligada" a las variables.
 
-Por ejemplo, la función `adder` retorna un closure. Cada closure está ligado a su propia variable `sum`.
+Por ejemplo, la función `sumador` retorna un closure. Cada closure está ligado a su propia variable `sum`.
 
 .play moretypes/function-closures.go
 
@@ -355,7 +351,6 @@ Por ejemplo, la función `adder` retorna un closure. Cada closure está ligado a
 Vamos a divertirnos con funciones.
 
 Implementa una función `fibonacci` que retorne una función (un closure) que
-returns successive
 retorne sucesivos [[https://en.wikipedia.org/wiki/Fibonacci_number][números de Fibonacci]]
 (0, 1, 1, 2, 3, 5, ...).
 
