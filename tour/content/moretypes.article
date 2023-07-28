@@ -35,9 +35,9 @@ Un `struct` es una colección de campos.
 
 .play moretypes/structs.go
 
-* Campos de Struct
+* Campos de un struct
 
-Los campos de struct se acceden usando un punto.
+Los campos de un struct se acceden usando un punto.
 
 .play moretypes/struct-fields.go
 
@@ -54,9 +54,9 @@ escribir solo `p.X`, sin la indirección explícita.
 
 * Struct Literals
 
-Un struct literal denota un valor de struct recién asignado enumerando los valores de sus campos.
+Un struct literal denota el valor de struct recién creado listando los valores de sus campos.
 
-Puedes enumerar solo un subconjunto de campos usando la sintaxis `Nombre:`. (Y el orden de los campos nombrados es irrelevante.)
+Puedes listar solo un subconjunto de campos usando la sintaxis `Nombre:`. (Y el orden de los campos nombrados es irrelevante.)
 
 El prefijo especial `&` devuelve un puntero al valor de struct.
 
@@ -137,7 +137,7 @@ luego construye un slice que lo referencia:
 
 * Slice defaults
 
-Al crear el slice, puedes omitir los límites alto o bajo para usar sus valores predeterminados en su lugar.
+Al utilizar un slice, puedes omitir los límites alto o bajo para usar sus valores predeterminados en su lugar.
 
 El defecto es cero para el límite inferior y la longitud del slice para el límite superior.
 
@@ -246,7 +246,7 @@ El primero es el índice, y el segundo es una copia del elemento en ese índice.
 
 * Range continuo
 
-Puede omitir el índice o el valor asignando a `_`.
+Puedes omitir el índice o el valor asignando a `_`.
 
     for i, _ := range pow
     for _, value := range pow
@@ -315,8 +315,7 @@ Si `key` está en `m`, entonces `ok` es `true`.
 
 Si `key` no está en `m`, entonces `elem` es el valor zero para el tipo de elemento del map.
 
-*Note:* If `elem` or `ok` have not yet been declared you could use a short declaration form:
-*Nota:* Si `elem` u `ok` no han sido declarados aún, puedes usar la forma de declaración corta:
+*Nota:* Si `elem` u `ok` no han sido declarados aún, puedes usar la forma breve de declaración:
 
 	elem, ok := m[key]
 
