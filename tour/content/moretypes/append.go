@@ -1,4 +1,3 @@
-//go:build OMIT
 // +build OMIT
 
 package main
@@ -9,7 +8,7 @@ func main() {
 	var s []int
 	imprimirSlice(s)
 
-	// append funciona en slices nil.
+	// append funciona en nil slices.
 	s = append(s, 0)
 	imprimirSlice(s)
 
@@ -17,7 +16,7 @@ func main() {
 	s = append(s, 1)
 	imprimirSlice(s)
 
-	// Se pueden agregar más de un elemento a la vez.
+	// Podemos agregar más de un elemento a la vez.
 	s = append(s, 2, 3, 4)
 	imprimirSlice(s)
 }
