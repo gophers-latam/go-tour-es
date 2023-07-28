@@ -92,7 +92,6 @@ El tipo `[]T` es un slice con elementos de tipo `T`.
 Un slice se forma especificando dos índices, un límite inferior y
 superior, separados por dos puntos:
 
-
 	a[low : high]
 
 Esto selecciona un rango semiabierto que incluye el primer
