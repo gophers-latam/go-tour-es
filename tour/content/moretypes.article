@@ -9,7 +9,7 @@ https://golang.org
 Go tiene punteros.
 Un puntero contiene la dirección de memoria de un valor.
 
-El tipo `*T` es un puntero a un valor `T`. Su valor zero es `nil`.
+El tipo `*T` es un puntero a un valor `T`. Su valor cero es `nil`.
 
 	var p *int
 
@@ -23,7 +23,7 @@ El operador `*` denota el valor subyacente del puntero.
 	fmt.Println(*p) // lee i a través del puntero p
 	*p = 21         // establece i a través del puntero p
 
-Esto se conoce como "dereferenciar" o "indireccionar".
+Esto se conoce como "desreferenciar" o "indirección".
 
 A diferencia de C, Go no tiene aritmética de punteros.
 
@@ -52,7 +52,7 @@ escribir solo `p.X`, sin la indirección explícita.
 
 .play moretypes/struct-pointers.go
 
-* Struct Literals
+* Struct Literal
 
 Un struct literal denota el valor de struct recién creado listando los valores de sus campos.
 
@@ -118,7 +118,7 @@ Otros slices que comparten el mismo array subyacente verán esos cambios.
 .play moretypes/slices-pointers.go
 
 
-* Slice literals
+* Slice literal
 
 Un slice literal es como un array literal sin la longitud.
 
@@ -176,7 +176,7 @@ mas allá de su capacidad y ve lo que sucede.
 
 * Nil slices
 
-El valor zero de un slice es `nil`.
+El valor cero de un slice es `nil`.
 
 Un slice nulo tiene una longitud y capacidad de 0
 y no tiene array subyacente.
@@ -204,7 +204,7 @@ Para especificar una capacidad, pasa un tercer argumento a `make`:
 .play moretypes/making-slices.go
 
 
-* Slices of slices
+* Slices de slices
 
 Los slices pueden contener cualquier tipo, incluyendo otros slices.
 
@@ -272,7 +272,7 @@ La elección de la imagen es tuya. Las funciones interesantes incluyen `(x+y)/2`
 
 Un map asocia claves a valores.
 
-El valor zero de un map es `nil`.
+El valor cero de un map es `nil`.
 Un map nulo no tiene claves, ni se pueden agregar claves.
 
 La funcion `make` retorna un map del tipo dado,
@@ -312,7 +312,7 @@ Prueba que una clave esté presente con una asignación de dos valores:
 
 Si `key` está en `m`, entonces `ok` es `true`.
 
-Si `key` no está en `m`, entonces `elem` es el valor zero para el tipo de elemento del map.
+Si `key` no está en `m`, entonces `elem` es el valor cero para el tipo de elemento del map.
 
 *Nota:* Si `elem` u `ok` no han sido declarados aún, puedes usar la forma breve de declaración:
 
@@ -336,7 +336,7 @@ Los valores de función pueden ser usados como argumentos de funciones y valores
 
 .play moretypes/function-values.go
 
-* Function closures
+* Funciones closures
 
 Las funciones de Go pueden ser closures. Un closure es un valor de función que referencia variables fuera de su cuerpo. La función puede acceder y asignar a las variables referenciadas; en este sentido la función está "ligada" a las variables.
 
@@ -356,6 +356,6 @@ retorne sucesivos [[https://en.wikipedia.org/wiki/Fibonacci_number][números de 
 
 * ¡Felicitaciones!
 
-Has completado esta lección!
+¡Has completado esta lección!
 
 Puedes volver a la lista de [[/list][módulos]] para encontrar qué aprender a continuación, o continuar con la [[javascript:click('.next-page')][siguiente lección]].
