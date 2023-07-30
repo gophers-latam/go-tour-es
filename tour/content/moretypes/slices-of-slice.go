@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	// Create a tic-tac-toe board.
+	// Crear un tablero de tic-tac-toe.
 	board := [][]string{
 		[]string{"_", "_", "_"},
 		[]string{"_", "_", "_"},

@@ -6,21 +6,21 @@ import "fmt"
 
 func main() {
 	var s []int
-	printSlice(s)
+	imprimirSlice(s)
 
-	// append works on nil slices.
+	// append funciona en nil slices.
 	s = append(s, 0)
-	printSlice(s)
+	imprimirSlice(s)
 
-	// The slice grows as needed.
+	// El slice crece según sea necesario.
 	s = append(s, 1)
-	printSlice(s)
+	imprimirSlice(s)
 
-	// We can add more than one element at a time.
+	// Podemos agregar más de un elemento a la vez.
 	s = append(s, 2, 3, 4)
-	printSlice(s)
+	imprimirSlice(s)
 }
 
-func printSlice(s []int) {
+func imprimirSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }

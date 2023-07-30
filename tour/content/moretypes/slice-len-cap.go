@@ -8,19 +8,19 @@ func main() {
 	s := []int{2, 3, 5, 7, 11, 13}
 	printSlice(s)
 
-	// Slice the slice to give it zero length.
+	// Recortar el slice para darle longitud cero.
 	s = s[:0]
-	printSlice(s)
+	imprimirSlice(s)
 
-	// Extend its length.
+	// Extender su longitud.
 	s = s[:4]
-	printSlice(s)
+	imprimirSlice(s)
 
-	// Drop its first two values.
+	// Descartar los primeros dos valores.
 	s = s[2:]
-	printSlice(s)
+	imprimirSlice(s)
 }
 
-func printSlice(s []int) {
+func imprimirSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }

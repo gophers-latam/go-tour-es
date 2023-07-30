@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-func adder() func(int) int {
+func sumador() func(int) int {
 	sum := 0
 	return func(x int) int {
 		sum += x
@@ -13,7 +13,7 @@ func adder() func(int) int {
 }
 
 func main() {
-	pos, neg := adder(), adder()
+	pos, neg := sumador(), sumador()
 	for i := 0; i < 10; i++ {
 		fmt.Println(
 			pos(i),
