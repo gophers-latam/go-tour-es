@@ -58,7 +58,7 @@ y observa como cambia el comportamiento del programa.
 
 Con un receptor de valor, el método `Scale` opera en una copia del valor 
 `Vertex` original.
-(Este es el mismo comportamiento que para cualquier otro argumento de función.)
+(Este comportamiento es igual para cualquier otro argumento de función.)
 El método `Scale` debe tener un puntero receptor para cambiar el valor de `Vertex`
 declarado en la función `main`.
 
@@ -164,7 +164,7 @@ implementación, que luego podría aparecer en cualquier paquete sin arreglo pre
 
 * Valores de interfaz
 
-debajo del capo, los valores de interfaz se pueden considerar como una tupla de un valor y un
+Debajo del capo, los valores de interfaz se pueden considerar como una tupla de un valor y un
 tipo en concreto:
 
 	(valor, tipo)
@@ -185,7 +185,7 @@ En otros lenguajes esto activaría una excepción de puntero nulo,
 pero en Go es común escribir métodos que manejan con gracia ser llamados
 con un receptor nulo (como el método `M` en este ejemplo.)
 
-Tenga en cuenta que un valor de interfaz que contiene un valor concreto nulo es en sí mismo no nulo.
+Tenga en cuenta que un valor de interfaz que contiene un valor concreto nulo no es considerado nulo en sí mismo.
 
 .play methods/interface-values-with-nil.go
 
@@ -205,7 +205,7 @@ El tipo de interfaz que específica cero métodos es conocida como una _interfaz
 	interface{}
 
 Una interfaz vacía puede contener valores de cualquier tipo.
-(Cada tipo implementa por lo menos zero metodos.)
+(Cada tipo implementa por lo menos cero metodos.)
 
 Las interfaces vacías son utilizadas por el código que maneja valores de tipo desconocido.
 Por ejemplo, `fmt.Print` toma cualquier número de argumentos del tipo `interface{}`.
@@ -283,7 +283,7 @@ Un `Striger` es un tipo que puede describirse a sí mismo como un string. El paq
 * Ejercicio: Stringers
 
 Haga que el tipo `IPAddr` implemente `fmt.Stringer` para imprimir la dirección
-como un quad punteado.
+como un cuarteto punteado.
 
 Por ejemplo, `IPAddr{1,`2,`3,`4}` debería de imprimir como `"1.2.3.4"`.
 
@@ -330,7 +330,7 @@ y conviértelo en un `error` dándole un
 
 	func (e ErrNegativeSqrt) Error() string
 
-metodo tal que `ErrNegativeSqrt(-2).Error()` retorne `"cannot`Sqrt`negative`number:`-2"`.
+metodo tal que `ErrNegativeSqrt(-2).Error()` retorne `"No` `se` `puede` `calcular` `la` `raíz` `cuadrada` `de` `un` `número` `negativo`: `-2"`
 
 *Nota:* Una llamada a `fmt.Sprint(e)` dentro del método `Error` enviará el programa a un bucle infinito. Puede evitar esto convirtiendo `e` primero: `fmt.Sprint(float64(e))`.  ¿Por qué?
 
@@ -374,8 +374,8 @@ Por ejemplo, la función [[https://golang.org/pkg/compress/gzip/#NewReader][gzip
 
 Implementar un `rot13reader` que implemente `io.reader` y lea desde un `io.reader`, modificando el flujo aplicando el cifrado de sustitución [[https://en.wikipedia.org/wiki/rot13][rot13]] a todos los caracteres alfabéticos.
 
-El tipo `rot13Reader` es proporcionado para ti.
-Conviértalo en un `io.Reader` implementando su método `Read`.
+El tipo `rot13Reader` es proporcionado por ti.
+Conviértelo en un `io.Reader` implementando su método `Read`.
 
 .play methods/exercise-rot-reader.go
 
@@ -392,8 +392,8 @@ Conviértalo en un `io.Reader` implementando su método `Read`.
 	}
 
 *Nota*: el valor devuelto `Rectángulo` del método `Bounds` es en realidad un
-[[https://golang.org/pkg/image/#Rectangle][`image.Rectangle`]], como él
-la declaración está dentro del paquete `image`.
+[[https://golang.org/pkg/image/#Rectangle][`image.Rectangle`]], ya que la declaración está dentro del paquete `image`
+
 
 (Vea [[https://golang.org/pkg/image/#Image][la documentación]] para todos los detalles.)
 
@@ -405,7 +405,7 @@ Los tipos `color.Color` y `color.Model` también son interfaces, pero lo ignorar
 
 ¿Recuerdas él [[/moretypes/18][generador de imágenes]] que escribiste antes? Escribamos otro, pero esta vez devolverá una implementación de `image.Image` en lugar de una porción de datos.
 
-Defina su propio tipo de `Imagen`, implemente [[https://golang.org/pkg/image/#Image][los métodos necesarios]] y llame a `pic.ShowImage`.
+Define tu propio tipo de `Imagen`, implemente [[https://golang.org/pkg/image/#Image][los métodos necesarios]] y llame a `pic.ShowImage`.
 
 `Bounds` debería devolver un `image.Rectangle`, como `image.Rect(0,`0,`w,`h)`.
 
