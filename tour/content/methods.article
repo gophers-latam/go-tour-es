@@ -72,7 +72,7 @@ Nuevamente, prueba eliminando el signo `*` de la línea 16
 ¿Puedes ver porque el comportamiento cambia?
 ¿Que más necesitas cambiar para que el ejemplo compile?
 
-(Si no esta seguro, continúe a la siguiente página.)
+(Si no está seguro, continúe a la siguiente página.)
 
 .play methods/methods-pointers-explained.go
 
@@ -136,7 +136,7 @@ aunque el método `Abs` no necesita modificar su receptor.
 
 En general, todos los métodos de un tipo determinado deben tener un valor o un puntero
 receptor, pero no una mezcla de ambos.
-(Veremos el porqué de esto en las siguentes paginas.)
+(Veremos el porqué de esto en las siguientes páginas.)
 
 .play methods/methods-with-pointer-receivers.go
 
@@ -205,7 +205,7 @@ El tipo de interfaz que específica cero métodos es conocida como una _interfaz
 	interface{}
 
 Una interfaz vacía puede contener valores de cualquier tipo.
-(Cada tipo implementa por lo menos cero metodos.)
+(Cada tipo implementa por lo menos cero métodos.)
 
 Las interfaces vacías son utilizadas por el código que maneja valores de tipo desconocido.
 Por ejemplo, `fmt.Print` toma cualquier número de argumentos del tipo `interface{}`.
@@ -330,11 +330,11 @@ y conviértelo en un `error` dándole un
 
 	func (e ErrNegativeSqrt) Error() string
 
-metodo tal que `ErrNegativeSqrt(-2).Error()` retorne `"No` `se` `puede` `calcular` `la` `raíz` `cuadrada` `de` `un` `número` `negativo`: `-2"`
+método tal que `ErrNegativeSqrt(-2).Error()` retorne `"No` `se` `puede` `calcular` `la` `raíz` `cuadrada` `de` `un` `número` `negativo`: `-2"`
 
-*Nota:* Una llamada a `fmt.Sprint(e)` dentro del método `Error` enviará el programa a un bucle infinito. Puede evitar esto convirtiendo `e` primero: `fmt.Sprint(float64(e))`.  ¿Por qué?
+*Nota:* Una llamada a fmt.Sprint(e) dentro del método `Error` puede llevar al programa a un bucle infinito. Puedes evitar esto convirtiendo primero `e` en float64, así: `fmt.Sprint(float64(e))`. ¿Por qué?
 
-Cambie su función `Sqrt` para devolver un valor `ErrNegativeSqrt` cuando se le dé un número negativo
+Cambia tu función `Sqrt` para devolver un valor `ErrNegativeSqrt` cuando se le pase un número negativo
 
 .play methods/exercise-errors.go
 
@@ -395,7 +395,7 @@ Conviértelo en un `io.Reader` implementando su método `Read`.
 [[https://golang.org/pkg/image/#Rectangle][`image.Rectangle`]], ya que la declaración está dentro del paquete `image`
 
 
-(Vea [[https://golang.org/pkg/image/#Image][la documentación]] para todos los detalles.)
+(consulta [[https://golang.org/pkg/image/#Image][la documentación]] para obtener todos los detalles.)
 
 Los tipos `color.Color` y `color.Model` también son interfaces, pero lo ignoraremos usando las implementaciones predefinidas `color.RGBA` y `color.RGBAModel`. Estas interfaces y tipos están especificados por [[https://golang.org/pkg/image/color/][image/paquete color]]
 
@@ -419,4 +419,4 @@ Define tu propio tipo de `Imagen`, implemente [[https://golang.org/pkg/image/#Im
 
 ¡Has finalizado esta lección!
 
-Puede volver a la lista de [[/list][modulos]] para encontrar qué aprender a continuación, o continuar con la [[javascript:click('.next-page')][siguiente lección]].
+Puedes volver a la lista de [[/list][módulos]] para encontrar qué aprender a continuación, o continuar con la [[javascript:click('.next-page')][siguiente lección]].
