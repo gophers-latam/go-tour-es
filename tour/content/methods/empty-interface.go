@@ -11,7 +11,7 @@ func main() {
 	i = 42
 	describe(i)
 
-	i = "hello"
+	i = "hola"
 	describe(i)
 }
 
