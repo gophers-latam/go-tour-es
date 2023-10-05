@@ -7,13 +7,13 @@ import (
 )
 
 type Fetcher interface {
-	// Fetch returns the body of URL and
-	// a slice of URLs found on that page.
+    // Fetch devuelve el cuerpo de la URL y
+    // una porción de URL encontradas en esa página.
 	Fetch(url string) (body string, urls []string, err error)
 }
 
-// Crawl uses fetcher to recursively crawl
-// pages starting with url, to a maximum of depth.
+// Crawl utiliza el buscador para rastrear de forma recursiva
+// páginas que comienzan con url, hasta un máximo de profundidad.
 func Crawl(url string, depth int, fetcher Fetcher) {
 	// TODO: Fetch URLs in parallel.
 	// TODO: Don't fetch the same URL twice.
@@ -37,7 +37,7 @@ func main() {
 	Crawl("https://golang.org/", 4, fetcher)
 }
 
-// fakeFetcher is Fetcher that returns canned results.
+// fakeFetcher es un Fetcher que devuelve resultados predefinidos.
 type fakeFetcher map[string]*fakeResult
 
 type fakeResult struct {
@@ -52,7 +52,7 @@ func (f fakeFetcher) Fetch(url string) (string, []string, error) {
 	return "", nil, fmt.Errorf("not found: %s", url)
 }
 
-// fetcher is a populated fakeFetcher.
+// fetcher es un fakeFetcher poblado.
 var fetcher = fakeFetcher{
 	"https://golang.org/": &fakeResult{
 		"The Go Programming Language",
