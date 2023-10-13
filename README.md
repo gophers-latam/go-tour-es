@@ -1,17 +1,27 @@
-# Go Website
+# 🤔Como utilizar el tour? 
+Para poder usar el tour en español, lo primero que debes de verificar es:
+- Tener instalado Git.
+- Tener instalado Go.
 
-This repository holds the Go Website server code and content.
+Una vez verificado estos pasos, deberás ejecutar el siguiente comando en tu terminal o en tu editor de código favorito:
 
-## Download/Install
+```bash
+git clone https://github.com/gophers-latam/go-tour-es
+```
+o también
 
-The easiest way to install is to run `go get -u golang.org/x/website`. You can
-also manually git clone the repository to `$GOPATH/src/golang.org/x/website`.
+```go
+go install -u https://github.com/gophers-latam/go-tour-es
+// luego en tu terminal ejecutas: ./go-tour-es
+```
 
-## Report Issues / Send Patches
+## ⚠️ Reportar issues
 
-This repository uses Gerrit for code changes. To learn how to submit changes to
-this repository, see https://golang.org/doc/contribute.html.
+Para reportar un error de traducción o simplemente aportar al proyecto, puedes
+crear un issue al siguiente repositorio: https://github.com/gophers-latam/go-tour-es
 
-The main issue tracker for the time repository is located at
-https://github.com/golang/go/issues. Prefix your issue with "x/website:" in the
-subject line, so it is easy to find.
+Las traducciones se encuentran en la ruta: go-tour-es/tour/content/
+
+Cualquier issue y pull request son bienvenidos.
+
+![Alt text](image-2.png)
