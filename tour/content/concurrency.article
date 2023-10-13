@@ -176,12 +176,12 @@ La
 comenzar.
 Contiene referencias, tutoriales, videos y más.
 
-Para aprender a organizar y trabajar con código Go, lea [[https://golang.org/doc/code][Como escribir código Go]].
+Para aprender a organizar y trabajar con código Go, lea [[https://golang.org/doc/code][Cómo escribir código Go]].
 
 Si necesita ayuda con la librería estándar, vea la [[https://golang.org/pkg/][referencia de paquetes]]. Para ayuda con el lenguaje en sí, podría sorprenderse al ver que la [[https://golang.org/ref/spec][Especificación del Lenguaje]] es bastante legible.
 
 Para explorar más a fondo el modelo de concurrencia de Go, vea
-[[https://www.youtube.com/watch?v=f6kdp27TYZs][patrones de concurrencia de Go]]
+[[https://www.youtube.com/watch?v=f6kdp27TYZs][Patrones de concurrencia de Go]]
 ([[https://talks.golang.org/2012/concurrency.slide][slides]])
 y
 [[https://www.youtube.com/watch?v=QDDwwePbDtw][Patrones avanzados de concurrencia de Go]]
@@ -195,9 +195,9 @@ Para comenzar a escribir aplicaciones web, mire
 y lea
 [[https://golang.org/doc/articles/wiki/][Escribir aplicaciones web]] tutorial.
 
-La [[https://golang.org/doc/codewalk/functions/][Funciones de primera clase en Go]] ofrece una perspectiva interesante sobre los tipos de funciones de Go.
+[[https://golang.org/doc/codewalk/functions/][Funciones de primera clase en Go]] ofrece una perspectiva interesante sobre los tipos de funciones de Go.
 
 El [[https://blog.golang.org/][Blog de Go]] tiene un gran archivo de artículos informativos sobre Go.
 
-Visita [[https://golang.org][golang.org]] para mas.
+Visita [[https://golang.org][golang.org]] para más.
 
