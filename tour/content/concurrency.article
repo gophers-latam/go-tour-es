@@ -43,16 +43,18 @@ Una vez que ambas gorutinas han completado sus cálculos, se calcula el resultad
 
 * Canales con Buffer
 A los canales se les puede aplicar un buffer. Proporcione la longitud del buffer como segundo argumento para que `make` inicialice un canal con buffer:
+
 	ch := make(chan int, 100)
 
-Los envíos a un canal con buffer bloquean solo cuando el buffer está lleno. Recibir se bloquea cuando el buffer está vacío.
+Los envíos a un canal con buffer bloquean solo cuando el buffer está lleno. Recibir bloquea cuando el buffer está vacío.
 
 Modifique el ejemplo para sobrepasar el buffer y ver que pasa.
 
 .play concurrency/buffered-channels.go
 
 * Range y Close
-Quien envía puede `cerrar` un canal para indicar que no se enviarán más valores. Los receptores pueden comprobar si un canal ha sido cerrado asignando un segundo parámetro a la expresión de recepción:
+Quien envía puede cerrar un canal para indicar que no se enviarán más valores. Los receptores pueden comprobar si un canal ha sido cerrado asignando un segundo parámetro a la expresión de recepción:
+
 	v, ok := <-ch
 
 `ok` es `false` si no hay más valores para recibir y el canal está cerrado.
@@ -75,22 +77,22 @@ Un `select` bloquea hasta que uno de sus cases pueda ejecutarse, entonces lo eje
 
 * Selección por Default
 
-Él case `default` en un `select` se ejecuta si no hay otro case listo.
+El case `default` en un `select` se ejecuta si no hay otro case listo.
 
-Utilice un caso "default" para intentar enviar o recibir sin bloquear:
+Utilice un case `default` para intentar enviar o recibir sin bloquear:
 
 	select {
 	case i := <-c:
 		// use i
 	default:
-		// receiving from c would block
+		// recibir de c bloquearía
 	}
 
 .play concurrency/default-selection.go
 
 * Ejercicio: Árboles Binarios Equivalentes
 
-Pueden haber diferentes tipos de árboles binarios con la misma secuencia de valores. Por ejemplo, aquí hay dos arboles binarios guardando la secuencia 1, 1, 2, 3, 5, 8, 13.
+Pueden haber diferentes tipos de árboles binarios con la misma secuencia de valores. Por ejemplo, aquí hay dos árboles binarios guardando la secuencia 1, 1, 2, 3, 5, 8, 13.
 
 .image /content/img/tree.png
 
@@ -107,13 +109,13 @@ Este ejemplo usa el paquete `tree`, el cual define el tipo:
 
 Continúe la descripción en la [[javascript:click('.next-page')][página siguiente]].
 
-* Ejercicio: Árboles Binarios Equivalentes.
+* Ejercicio: Árboles Binarios Equivalentes
 
 *1.* Implemente la función `Walk`.
 
 *2.* Pruebe la función `Walk`.
 
-La función tree.New(k) construye un árbol binario de estructura aleatoria (pero siempre ordenado) que contiene los valores `k`, `2k`, `3k`, ..., `10k`.
+La función `tree.New(k)` construye un árbol binario de estructura aleatoria (pero siempre ordenado) que contiene los valores `k`, `2k`, `3k`, ..., `10k`.
 
 Crea un nuevo canal `ch` e inicia el recorrido:
 
@@ -143,13 +145,13 @@ Este concepto es llamado _exclusión_mutua_, y el nombre convencional de la estr
 La librería estándar de Go provee la exclusión mutua con
 [[https://golang.org/pkg/sync/#Mutex][`sync.Mutex`]] y sus dos métodos:
 
-- `Lock (bloqueado)`
-- `Unlock (desbloqueado)`
+- `Lock(bloqueado)`
+- `Unlock(desbloqueado)`
 
 Podemos definir un bloque de código para que se ejecute en exclusión mutua rodeándolo
 con una llamada a `Lock` y `Unlock` como se muestra en el método `Inc`.
 
-También podemos usar "defer" para asegurarnos de que el mutex se desbloquee como en el método "Valor".
+También podemos usar `defer` para asegurarnos de que el mutex se desbloquee como en el método `Valor`.
 
 .play concurrency/mutex-counter.go
 
@@ -157,7 +159,7 @@ También podemos usar "defer" para asegurarnos de que el mutex se desbloquee com
 
 En este ejercicio, utilizarás las funciones de concurrencia de Go para paralelizar un rastreador web.
 
-Modifique la función "Crawl" para recuperar URL en paralelo sin recuperar la misma URL dos veces.
+Modifique la función `Crawl` para recuperar URL en paralelo sin recuperar la misma URL dos veces.
 
 _Pista_: puede mantener un caché de las URL que se han obtenido en un mapa, pero los mapas por sí solos no son
 seguros para uso concurrente!

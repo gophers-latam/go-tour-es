@@ -1,3 +1,4 @@
+//go:build OMIT
 // +build OMIT
 
 package main
@@ -18,12 +19,12 @@ type SafeCounter struct {
 func (c *SafeCounter) Inc(key string) {
 	c.mu.Lock()
 	// Bloquear para que solo una rutina a la vez pueda acceder al mapa c.v.
-    c.v[key]++
+	c.v[key]++
 	c.mu.Unlock()
 }
 
-// Value devuelve el valor actual del contador para la clave dada.
-func (c *SafeCounter) Value(key string) int {
+// Valor devuelve el valor actual del contador para la clave dada.
+func (c *SafeCounter) Valor(key string) int {
 	c.mu.Lock()
 	// Lock so only one goroutine at a time can access the map c.v.
 	defer c.mu.Unlock()
@@ -37,5 +38,5 @@ func main() {
 	}
 
 	time.Sleep(time.Second)
-	fmt.Println(c.Value("somekey"))
+	fmt.Println(c.Valor("somekey"))
 }
