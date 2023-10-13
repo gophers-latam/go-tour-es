@@ -16,15 +16,15 @@ inicia una nueva gorutina
 
 La evaluación de `f`, `x`, `y`, y `z` ocurre en la gorutina en curso y la ejecución de `f`  ocurre en la nueva gorutina.
 
-Las gorutinas se ejecutan en el mismo espacio de direcciones, así que el acceso a memoria compartida debe estar sincronizado. El paquete [[https://golang.org/pkg/sync/][`sync`]] provee algunas primitivas utiles para ello, aunque no las necesitará mucho en Go ya que hay otras primitivas. (Ver en la siguiente diapositiva)
+Las gorutinas se ejecutan en el mismo espacio de direcciones, así que el acceso a memoria compartida debe estar sincronizado. El paquete [[https://golang.org/pkg/sync/][`sync`]] provee algunas primitivas útiles para ello, aunque no las necesitará mucho en Go ya que hay otras primitivas. (Ver en la siguiente diapositiva)
 
 .play concurrency/goroutines.go
 
 * Canales
 
-Los canales son un conducto tipado a través del cual puede envíar y recibir valores con el operador de canal, `<-`.
+Los canales son un conducto tipado a través del cual puede enviar y recibir valores con el operador de canal, `<-`.
 
-	ch <- v    // Envia v al canal ch.
+	ch <- v    // Envía v al canal ch.
 	v := <-ch  // Recibe desde ch, y
 	           // asigna valor a v.
 
@@ -34,7 +34,7 @@ Como los mapas y slices, los canales deben crearse antes de usarse:
 
 	ch := make(chan int)
 
-De manera predeterminada, envía y recibe bloques hasta que el otro lado esté listo. Esto permite a la gorutinas sincronizarce sin bloqueos explicitos o variables condicionales.
+De manera predeterminada, envía y recibe bloques hasta que el otro lado esté listo. Esto permite a la gorutinas sincronizarse sin bloqueos explícitos o variables condicionales.
 
 El código de ejemplo suma los números en un slice, distribuyendo el trabajo entre dos gorutinas.
 Una vez que ambas gorutinas han completado sus cálculos, se calcula el resultado final.
@@ -59,7 +59,7 @@ Los receptores pueden comprobar si un canal ha sido cerrado asignando un segundo
 
 El loop `for`i`:=`range`c` recibe valores desde el canal repetidamente hasta que se cierra.
 
-*Nota:* Solo quien envía debería cerrar un canal, nunca el receptor. Envíar a un canal cerrado causara un panic.
+*Nota:* Solo quien envía debería cerrar un canal, nunca el receptor. Enviar a un canal cerrado causara un panic.
 
 *Otra*nota:* Los canales no son archivos; usualmente no necesitas cerrarlos. Cerrarlos es solo necesario cuando el receptor debe ser avisado de que no llegarán mas valores, por ejemplo, para terminar un loop `range`.
 
@@ -138,12 +138,12 @@ Hemos visto cómo los canales son excelentes para la comunicación entre gorutin
 ¿Pero qué pasa si no necesitamos comunicación? ¿Qué pasa si solo queremos asegurarnos de que solo
 Una gorutina puede acceder a una variable a la vez para evitar conflictos?
 
-Este concepto es llamado _exclusión_mutua_, y el nombre convencionall de la estructura de datos que lo proporciona es _mutex_. 
+Este concepto es llamado _exclusión_mutua_, y el nombre convencional de la estructura de datos que lo proporciona es _mutex_. 
 
-La librería estándar de Go provee la exclusiónon mutua con
+La librería estándar de Go provee la exclusión mutua con
 [[https://golang.org/pkg/sync/#Mutex][`sync.Mutex`]] y sus dos métodos:
 
-- `Lock (bloquedo)`
+- `Lock (bloqueado)`
 - `Unlock (desbloqueado)`
 
 Podemos definir un bloque de código para que se ejecute en exclusión mutua rodeándolo
@@ -178,7 +178,7 @@ Contiene referencias, tutoriales, videos y más.
 
 Para aprender a organizar y trabajar con código Go, lea [[https://golang.org/doc/code][Como escribir código Go]].
 
-Si necesita ayuda con la librería estándar, vea la [[https://golang.org/pkg/][referencia de paquetes]]. Para ayuda con el lenguaje en sí, podría sorprenderse al ver que la [[https://golang.org/ref/spec][Especificación del Lenguage]] es bastante legible.
+Si necesita ayuda con la librería estándar, vea la [[https://golang.org/pkg/][referencia de paquetes]]. Para ayuda con el lenguaje en sí, podría sorprenderse al ver que la [[https://golang.org/ref/spec][Especificación del Lenguaje]] es bastante legible.
 
 Para explorar más a fondo el modelo de concurrencia de Go, vea
 [[https://www.youtube.com/watch?v=f6kdp27TYZs][patrones de concurrencia de Go]]
