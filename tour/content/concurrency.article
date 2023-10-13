@@ -6,7 +6,7 @@ https://golang.org
 
 * Gorutinas
 
-Una _gorutina_ es un hilo ligero manejado por la runtime de Go.
+Una _gorutina_ es un hilo ligero manejado por el runtime de Go.
 
 	go f(x, y, z)
 
@@ -34,7 +34,7 @@ Como los mapas y slices, los canales deben crearse antes de usarse:
 
 	ch := make(chan int)
 
-De manera predeterminada, envía y recibe bloques hasta que el otro lado esté listo. Esto permite a la gorutinas sincronizarse sin bloqueos explícitos o variables condicionales.
+De manera predeterminada, envíar y recibir se bloquea hasta que el otro lado esté listo. Esto permite a las gorutinas sincronizarse sin bloqueos explícitos o variables condicionales.
 
 El código de ejemplo suma los números en un slice, distribuyendo el trabajo entre dos gorutinas.
 Una vez que ambas gorutinas han completado sus cálculos, se calcula el resultado final.
@@ -42,24 +42,24 @@ Una vez que ambas gorutinas han completado sus cálculos, se calcula el resultad
 .play concurrency/channels.go
 
 * Canales con Buffer
-A los canales se les puede aplicar un búfer. Proporcione la longitud del búfer como segundo argumento para que make inicialice un canal con búfer:
+A los canales se les puede aplicar un buffer. Proporcione la longitud del buffer como segundo argumento para que `make` inicialice un canal con buffer:
 	ch := make(chan int, 100)
 
-Los envíos a un canal con buffer bloquean solo cuando el buffer esta lleno. Recibe el bloque cuando el búfer está vacío.
+Los envíos a un canal con buffer bloquean solo cuando el buffer está lleno. Recibir se bloquea cuando el buffer está vacío.
 
 Modifique el ejemplo para sobrepasar el buffer y ver que pasa.
 
 .play concurrency/buffered-channels.go
 
 * Range y Close
-Los receptores pueden comprobar si un canal ha sido cerrado asignando un segundo parámetro a la expresión de recepción:
+Quien envía puede `cerrar` un canal para indicar que no se enviarán más valores. Los receptores pueden comprobar si un canal ha sido cerrado asignando un segundo parámetro a la expresión de recepción:
 	v, ok := <-ch
 
-`ok` es `false` si no hay mas valores para recibir y el canal está cerrado.
+`ok` es `false` si no hay más valores para recibir y el canal está cerrado.
 
 El loop `for`i`:=`range`c` recibe valores desde el canal repetidamente hasta que se cierra.
 
-*Nota:* Solo quien envía debería cerrar un canal, nunca el receptor. Enviar a un canal cerrado causara un panic.
+*Nota:* Solo quien envía debería cerrar un canal, nunca el receptor. Enviar a un canal cerrado causará un panic.
 
 *Otra*nota:* Los canales no son archivos; usualmente no necesitas cerrarlos. Cerrarlos es solo necesario cuando el receptor debe ser avisado de que no llegarán mas valores, por ejemplo, para terminar un loop `range`.
 
@@ -88,13 +88,13 @@ Utilice un caso "default" para intentar enviar o recibir sin bloquear:
 
 .play concurrency/default-selection.go
 
-* Ejercicio: Arboles binarios equivalentes
+* Ejercicio: Árboles Binarios Equivalentes
 
-Pueden haber diferentes tipos de arboles binarios con la misma secuencia de valores. Por ejemplo, aquí hay dos arboles binarios guardando la secuencia 1, 1, 2, 3, 5, 8, 13.
+Pueden haber diferentes tipos de árboles binarios con la misma secuencia de valores. Por ejemplo, aquí hay dos arboles binarios guardando la secuencia 1, 1, 2, 3, 5, 8, 13.
 
 .image /content/img/tree.png
 
-Una función para verificar si dos arboles binarios guardan la misma secuencia es bastante compleja en otros lenguajes. Usaremos la concurrencia y los canales de Go para escribir una solución simple.
+Una función para verificar si dos árboles binarios guardan la misma secuencia es bastante compleja en la mayoría de lenguajes. Usaremos la concurrencia y los canales de Go para escribir una solución simple.
 
 Este ejemplo usa el paquete `tree`, el cual define el tipo:
 
@@ -107,13 +107,13 @@ Este ejemplo usa el paquete `tree`, el cual define el tipo:
 
 Continúe la descripción en la [[javascript:click('.next-page')][página siguiente]].
 
-* Ejercicio: Arboles binarios equivalentes.
+* Ejercicio: Árboles Binarios Equivalentes.
 
 *1.* Implemente la función `Walk`.
 
 *2.* Pruebe la función `Walk`.
 
-La función tree.New(k) construye un árbol binario de estructura aleatoria (pero siempre ordenado) que contiene los valores k, 2k, 3k, ..., 10k.
+La función tree.New(k) construye un árbol binario de estructura aleatoria (pero siempre ordenado) que contiene los valores `k`, `2k`, `3k`, ..., `10k`.
 
 Crea un nuevo canal `ch` e inicia el recorrido:
 
@@ -136,7 +136,7 @@ Puede encontrar la documentación de `Tree` [[https://godoc.org/golang.org/x/tou
 Hemos visto cómo los canales son excelentes para la comunicación entre gorutinas.
 
 ¿Pero qué pasa si no necesitamos comunicación? ¿Qué pasa si solo queremos asegurarnos de que solo
-Una gorutina puede acceder a una variable a la vez para evitar conflictos?
+una gorutina pueda acceder a una variable a la vez para evitar conflictos?
 
 Este concepto es llamado _exclusión_mutua_, y el nombre convencional de la estructura de datos que lo proporciona es _mutex_. 
 
@@ -172,7 +172,7 @@ seguros para uso concurrente!
 #appengine: Una vez tengas instalado Go, la
 La
 [[https://golang.org/doc/][Documentación de Go]] es un un gran espacio para
-#appengine: comenzar.
+#appengine: continuar.
 comenzar.
 Contiene referencias, tutoriales, videos y más.
 
@@ -186,18 +186,18 @@ Para explorar más a fondo el modelo de concurrencia de Go, vea
 y
 [[https://www.youtube.com/watch?v=QDDwwePbDtw][Patrones avanzados de concurrencia de Go]]
 ([[https://talks.golang.org/2013/advconc.slide][slides]])
-y leer
+y lea
 [[https://golang.org/doc/codewalk/sharemem/][Compartir memoria comunicándose]]
 
 Para comenzar a escribir aplicaciones web, mire
 [[https://vimeo.com/53221558][Un entorno de programación sencillo]]
 ([[https://talks.golang.org/2012/simple.slide][slides]])
-y leer
+y lea
 [[https://golang.org/doc/articles/wiki/][Escribir aplicaciones web]] tutorial.
 
 La [[https://golang.org/doc/codewalk/functions/][Funciones de primera clase en Go]] ofrece una perspectiva interesante sobre los tipos de funciones de Go.
 
-Él [[https://blog.golang.org/][Blog de Go]] tiene un gran archivo de artículos informativos sobre Go.
+El [[https://blog.golang.org/][Blog de Go]] tiene un gran archivo de artículos informativos sobre Go.
 
 Visita [[https://golang.org][golang.org]] para mas.
 
