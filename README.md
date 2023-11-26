@@ -1,3 +1,7 @@
+# go-tour-es
+
+Este repositorio se basa en [cs.opensource.google/go/x/website](https://cs.opensource.google/go/x/website) que aqui equivale a [github.com/golang/website](https://github.com/golang/website) en la rama "**x.tour**", el [deploy](https://go-tour-lat.appspot.com/) se hace de igual manera que las traducciones disponibles en https://go.dev/tour/welcome/2.
+
 # 🤔Como utilizar el tour? 
 Para poder usar el tour en español, lo primero que debes de verificar es:
 - Tener instalado Git.
