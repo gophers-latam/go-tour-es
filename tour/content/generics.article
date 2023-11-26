@@ -1,37 +1,36 @@
-Genericos
+Genéricos
 Go admite programación genérica utilizando parámetros de tipo. Esta lección muestra algunos ejemplos para emplear genéricos en tu código.
 
 The Go Authors
+Los autores de Go
 https://golang.org
 
-* Type parameters
+* Parámetros de tipo
 
-Go functions can be written to work on multiple types using type parameters. The
-type parameters of a function appear between brackets, before the function's
-arguments.
+Las funciones en Go pueden ser escritas para trabajar con múltiples tipos usando parámetros de tipo. Los parámetros de tipo
+de una función aparecen entre paréntesis, antes de los de la función.
 
   func Index[T comparable](s []T, x T) int
 
-This declaration means that `s` is a slice of any type `T` that fulfills the
-built-in constraint `comparable`. `x` is also a value of the same type.
+Esta declaración significa que `s` es un slice de cualquier tipo `T` que cumpla la restricción incorporada
+`comparable`. `x` es también un valor del mismo tipo.
 
-`comparable` is a useful constraint that makes it possible to use the `==` and
-`!=` operators on values of the type. In this example, we use it to compare a
-value to all slice elements until a match is found. This `Index` function works
-for any type that supports comparison.
-
+`comparable` es una restricción útil que permite utilizar los operadores `==` y
+`!=` sobre valores del tipo. En este ejemplo, la utilizamos para comparar un valor
+con todos los elementos del slice hasta encontrar una coincidencia. Esta función `Index` funciona
+para cualquier tipo que admita la comparación.
 .play generics/index.go
 
-* Generic types
+* Tipos genéricos
 
-In addition to generic functions, Go also supports generic types. A type can
-be parameterized with a type parameter, which could be useful for implementing
-generic data structures.
+Además de funciones genéricas, Go también soporta tipos genéricos. Un tipo puede
+parametrizarse con un parámetro de tipo, lo que podría ser útil para implementar
+estructuras de datos genéricas.
 
-This example demonstrates a simple type declaration for a singly-linked list
-holding any type of value.
+Este ejemplo se muestra una declaración de tipo simple para una lista de un solo enlace
+que contiene cualquier tipo de valor.
 
-As an exercise, add some functionality to this list implementation.
+Como ejercicio, añade alguna funcionalidad a la implementación de esta lista.
 
 .play generics/list.go
 
@@ -39,4 +38,4 @@ As an exercise, add some functionality to this list implementation.
 
 ¡Has terminado esta lección!
 
-You can go back to the list of [[/tour/list][modules]] to find what to learn next, or continue with the [[javascript:click('.next-page')][next lesson]].
+Puedes volver a la lista de [[/list][módulos]] para saber qué aprender a continuación, o continuar con la [[javascript:click('.next-page')][siguiente lección]].
