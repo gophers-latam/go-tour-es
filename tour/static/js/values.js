@@ -24,7 +24,7 @@ value('tableOfContents', [{
     'lessons': ['methods']
 }, {
     'id': 'generics',
-    'title': 'Genericos',
+    'title': 'Genéricos',
     'description': '<p>Aprenda a utilizar parámetros tipados en funciones y estructuras de Go.</p>',
     'lessons': ['generics']
 }, {
