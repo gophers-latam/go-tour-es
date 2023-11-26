@@ -1,5 +1,5 @@
-service: tour
-runtime: go114
+service: default
+runtime: go121
 
 env_variables:
   TOUR_ANALYTICS: |
