@@ -5,14 +5,14 @@ The Go Authors
 Los autores de Go
 https://golang.org
 
-* Parámetros de un tipo
+* Parámetros de tipo
 
 Las funciones en Go pueden ser escritas para trabajar con múltiples tipos usando parámetros de tipo. Los parámetros de tipo
 de una función aparecen entre paréntesis, antes de los de la función.
 
   func Index[T comparable](s []T, x T) int
 
-Esta declaración significa que `s` es una slice de cualquier tipo `T` que cumpla la restricción incorporada
+Esta declaración significa que `s` es un slice de cualquier tipo `T` que cumpla la restricción incorporada
 `comparable`. `x` es también un valor del mismo tipo.
 
 `comparable` es una restricción útil que permite utilizar los operadores `==` y
