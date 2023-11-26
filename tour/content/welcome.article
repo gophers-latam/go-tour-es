@@ -22,7 +22,7 @@ Puedes navegar a través de ellos usando
 - [[javascript:highlight(".next-page")]["siguiente"]] o `PageDown` para ir a la página siguiente.
 
 El tour es interactivo. Haz clic el botón
-[[javascript:highlightAndClick("#run")][Run]]
+[[javascript:highlightAndClick("#run")][Ejecutar]]
 (o presiona `Shift` + `Enter`) para compilar y ejecutar el programa
 #appengine: a remote server.
 en tu computadora.
@@ -32,10 +32,10 @@ Este programa de ejemplo demuestra diferentes aspectos de Go. Los programas en e
 
 Modifica el programa y ejecútalo nuevamente.
 
-Cuando haces clic en [[javascript:highlightAndClick("#format")][Format]]
+Cuando haces clic en [[javascript:highlightAndClick("#format")][Formato]]
 (atajo: `Ctrl` + `Enter`), el siguiente texto en el editor es formateado usando la herramienta
 [[https://golang.org/cmd/gofmt/][gofmt]]. Puedes activar y desactivar el resalto de sintaxis haciendo clic
-en el botón [[javascript:highlightAndClick(".syntax-checkbox")][syntax]].
+en el botón [[javascript:highlightAndClick(".syntax-checkbox")][sintaxis]].
 
 Cuando estés listo para avanzar, haz clic en la [[javascript:highlightAndClick(".next-page")][flecha derecha]] abajo o presiona la tecla `PageDown`.
 
@@ -60,7 +60,7 @@ El tour está disponible en otros idiomas:
 - [[https://go-tour-ua-translation.lm.r.appspot.com/][Ukrainian — Українською]]
 - [[https://go-tour-lat.appspot.com/][Spanish — Español]]
 
-Haz clic en el botón [[javascript:highlightAndClick(".next-page")]["next"]] o presiona `PageDown` para continuar.
+Haz clic en el botón [[javascript:highlightAndClick(".next-page")]["siguiente"]] o presiona `PageDown` para continuar.
 
 #appengine: * Go offline (opcional)
 #appengine:
