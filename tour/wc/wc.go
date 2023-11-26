@@ -6,7 +6,7 @@ package wc // import "golang.org/x/tour/wc"
 
 import "fmt"
 
-// Test runs a test suite against f.
+// Test ejecuta un conjunto de pruebas contra f.
 func Test(f func(string) map[string]int) {
 	ok := true
 	for _, c := range testCases {
@@ -29,12 +29,13 @@ func Test(f func(string) map[string]int) {
 	}
 }
 
+
 var testCases = []struct {
 	in   string
 	want map[string]int
 }{
-	{"I am learning Go!", map[string]int{
-		"I": 1, "am": 1, "learning": 1, "Go!": 1,
+	{"¡Yo estoy aprendiendo Go!", map[string]int{
+		"Yo": 1, "estoy": 1, "aprendiendo": 1, "Go!": 1,
 	}},
 	{"The quick brown fox jumped over the lazy dog.", map[string]int{
 		"The": 1, "quick": 1, "brown": 1, "fox": 1, "jumped": 1,

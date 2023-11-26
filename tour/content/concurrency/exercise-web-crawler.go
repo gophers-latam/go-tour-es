@@ -15,9 +15,9 @@ type Fetcher interface {
 // Crawl utiliza el buscador para rastrear de forma recursiva
 // páginas que comienzan con url, hasta un máximo de profundidad.
 func Crawl(url string, depth int, fetcher Fetcher) {
-	// TODO: Fetch URLs in parallel.
-	// TODO: Don't fetch the same URL twice.
-	// This implementation doesn't do either:
+	// TODO: Recuperar URL en paralelo.
+    // TODO: No busques la misma URL dos veces.
+    // Esta implementación tampoco hace lo siguiente:
 	if depth <= 0 {
 		return
 	}
@@ -26,7 +26,7 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Printf("found: %s %q\n", url, body)
+	fmt.Printf("encontrado: %s %q\n", url, body)
 	for _, u := range urls {
 		Crawl(u, depth-1, fetcher)
 	}
@@ -49,7 +49,7 @@ func (f fakeFetcher) Fetch(url string) (string, []string, error) {
 	if res, ok := f[url]; ok {
 		return res.body, res.urls, nil
 	}
-	return "", nil, fmt.Errorf("not found: %s", url)
+	return "", nil, fmt.Errorf("no encontrado: %s", url)
 }
 
 // fetcher es un fakeFetcher poblado.

@@ -15,7 +15,7 @@ func main() {
 		[]string{"_", "_", "_"},
 	}
 
-	// The players take turns.
+    // Los jugadores se turnan.
 	board[0][0] = "X"
 	board[2][2] = "O"
 	board[1][2] = "X"

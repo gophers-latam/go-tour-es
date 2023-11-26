@@ -226,8 +226,8 @@ En el ejemplo de la derecha intente imprimir `needInt(Big)` también.
 
 .play basics/numeric-constants.go
 
-* Felicitaciones
+* ¡Felicitaciones!
 
-¡Terminaste esta lección!
+¡Has terminado esta lección!
 
 Puede volver a la lista de [[/list][módulos]] para encontrar qué aprender a continuación, o continuar con la [[javascript:click('.next-page')][siguiente lección]].

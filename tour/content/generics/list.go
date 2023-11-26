@@ -1,7 +1,7 @@
 package main
 
-// List represents a singly-linked list that holds
-// values of any type.
+// List representa una lista enlazada individualmente que contiene
+// valores de cualquier tipo.
 type List[T any] struct {
 	next *List[T]
 	val  T

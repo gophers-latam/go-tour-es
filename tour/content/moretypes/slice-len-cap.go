@@ -6,7 +6,7 @@ import "fmt"
 
 func main() {
 	s := []int{2, 3, 5, 7, 11, 13}
-	printSlice(s)
+    imprimirSlice(s)
 
 	// Recortar el slice para darle longitud cero.
 	s = s[:0]

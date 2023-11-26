@@ -1,5 +1,5 @@
 Genericos
-Go supports generic programming using type parameters. This lesson shows some examples for employing generics in your code.
+Go admite programación genérica utilizando parámetros de tipo. Esta lección muestra algunos ejemplos para emplear genéricos en tu código.
 
 The Go Authors
 https://golang.org
@@ -37,6 +37,6 @@ As an exercise, add some functionality to this list implementation.
 
 *  ¡Felicitaciones!
 
-You finished this lesson!
+¡Has terminado esta lección!
 
 You can go back to the list of [[/tour/list][modules]] to find what to learn next, or continue with the [[javascript:click('.next-page')][next lesson]].
