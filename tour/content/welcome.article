@@ -1,4 +1,4 @@
-Bienvenido!
+¡Bienvenido!
 Aprende a cómo usar este tour: incluyendo cómo navegar entre las diferentes lecciones y cómo ejecutar el código.
 
 Los autores de Go
@@ -38,6 +38,8 @@ Cuando haces clic en [[javascript:highlightAndClick("#format")][Format]]
 en el botón [[javascript:highlightAndClick(".syntax-checkbox")][syntax]].
 
 Cuando estés listo para avanzar, haz clic en la [[javascript:highlightAndClick(".next-page")][flecha derecha]] abajo o presiona la tecla `PageDown`.
+
+Traducción realizada por la comunidad de [[https://github.com/gophers-latam/go-tour-es/][Gophers-Latam]].
 
 .play welcome/hello.go
 
