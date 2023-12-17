@@ -29,6 +29,12 @@ Una vez realizado estos pasos, deberias ver la pantalla de bienvenida del tour d
 ![image](https://github.com/gophers-latam/go-tour-es/assets/73196303/9144abac-bafe-42dc-9ba1-d819aaa6e515)
 
 
+## Versión online 
+También, esta disponible la opción online del tour en español.
+
+👉  [Go Tour Español](https://go-tour-lat.appspot.com/)  👈
+
+
 ## ⚠️ Reportar issues
 
 Para reportar un error de traducción o simplemente aportar al proyecto, puedes
