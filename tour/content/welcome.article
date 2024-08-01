@@ -39,7 +39,7 @@ en el botón [[javascript:highlightAndClick(".syntax-checkbox")][sintaxis]].
 
 Cuando estés listo para avanzar, haz clic en la [[javascript:highlightAndClick(".next-page")][flecha derecha]] abajo o presiona la tecla `PageDown`.
 
-Traducción realizada por la comunidad de [[https://github.com/gophers-latam/go-tour-es/][Gophers-Latam]].
+Traducción realizada por la comunidad de [[https://github.com/gophers-latam/go-tour-es/][Gophers LATAM]].
 
 .play welcome/hello.go
 
