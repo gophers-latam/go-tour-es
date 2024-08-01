@@ -14,13 +14,6 @@ El programa que se muestra a la derecha está usando los paquetes con rutas de i
 
 Por convención, el nombre del paquete es el mismo que el último elemento de la ruta de importación. Por ejemplo, el paquete `"math/rand"` comprende archivos que comienzan con la declaración `package`rand`. En cambio `"math"` viene siendo parte de la ruta donde se encuentra el paquete y a su vez tambien puede ser un paquete que comprende archivos que comienzan con la declaración `package`math`.
 
-#appengine: *Nota:* El entorno en el que se ejecutan estos programas es
-#appengine: determinista, por lo que cada vez que ejecute el programa de ejemplo
-#appengine: `rand.Intn` devolverá el mismo número.
-#appengine:
-#appengine: (Para ver un número diferente, inicie el generador de números; ver [[https://golang.org/pkg/math/rand/#Seed][`rand.Seed`]].
-#appengine: El tiempo es constante en el playground, por lo que deberá usar otra cosa como semilla.)
-
 .play basics/packages.go
 
 * Importaciones
