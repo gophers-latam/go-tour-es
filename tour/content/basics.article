@@ -109,7 +109,7 @@ Como se muestra en el ejemplo de la derecha se inicializan sin tipo.
 
 .play basics/variables-with-initializers.go
 
-* Declaración corta de variables 
+* Declaración corta de variables
 
 Sólo dentro de una función, la declaración de asignación corta `:=` se puede usar en lugar de una declaración `var` con tipo implícito.
 
