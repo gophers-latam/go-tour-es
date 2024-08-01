@@ -35,8 +35,7 @@ Una vez realizado estos pasos, deberias ver la pantalla de bienvenida del tour d
 
 También, esta disponible la opción online del tour en español.
 
-👉  [Go Tour Español](https://go-tour-lat.appspot.com/)  👈
-
+👉 [Go Tour en Español](https://go-tour-lat.appspot.com/) 👈
 
 ## ⚠️ Reportar issues
 
