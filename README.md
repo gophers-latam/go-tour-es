@@ -49,7 +49,7 @@ También, esta disponible la opción online del tour en español.
 Para reportar un error de traducción o simplemente aportar al proyecto, puedes
 crear un issue en: [Go Tour Español - Issues](https://github.com/gophers-latam/go-tour-es/issues)
 
-Las traducciones se encuentran en la ruta: go-tour-es/tour/content/
+Las traducciones se encuentran en la ruta: `go-tour-es/tour/content/`
 
 Cualquier issue y pull request son bienvenidos.
 
