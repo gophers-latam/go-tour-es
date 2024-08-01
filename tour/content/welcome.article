@@ -89,7 +89,7 @@ El servicio recibe un programa Go, compila, vincula y ejecuta el programa dentro
 
 Hay limitaciones para los programas que pueden ser ejecutados dentro del playground de Go:
 
-- En el playground, el tiempo empieza en el 2009-11-10 23:00:00 UTC (determinar el significado de esta fecha es un ejercicio para el lector). Esto facilita el almacenamiento en caché de los programas al proporcionarles una salida determinista.
+- En el playground, el tiempo empieza el 2009-11-10 23:00:00 UTC (determinar el significado de esta fecha es un ejercicio para el lector). Esto facilita el almacenamiento en caché de los programas al proporcionarles una salida determinista.
 
 - También hay limitaciones en el tiempo de ejecución, el uso de CPU y memoria, y el programa no puede acceder a hosts de red externos.
 
