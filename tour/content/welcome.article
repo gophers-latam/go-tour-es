@@ -80,25 +80,25 @@ Haz clic en el botón [[javascript:highlightAndClick(".next-page")]["siguiente"]
 #appengine:
 #appengine: Por supuesto, puedes continuar haciendo el tour a través de este sitio web.
 
-#appengine: * Go Playground
-#appengine:
-#appengine: Este tour esta construido sobre [[https://play.golang.org/][Go Playground]],
-#appengine: un servicio web que se ejecuta en los servidores de [[https://golang.org/][golang.org]].
-#appengine:
-#appengine: El servicio recibe un programa Go, compila, vincula y ejecuta el programa dentro
-#appengine: de una zona de pruebas,luego devuelve la salida.
-#appengine:
-#appengine: Hay limitaciones para los programas que pueden ser ejecutados dentro del playground de Go:
-#appengine:
-#appengine: - En el playground, el tiempo empieza en el 2009-11-10 23:00:00 UTC (determinar el significado de esta fecha es un ejercicio para el lector). Esto facilita el almacenamiento en caché de los programas al proporcionarles una salida determinista.
-#appengine:
-#appengine: - También hay limitaciones en el tiempo de ejecución, el uso de CPU y memoria, y el programa no puede acceder a hosts de red externos.
-#appengine:
-#appengine: El playground utiliza la última version estable de Go.
-#appengine:
-#appengine: Lee "[[https://blog.golang.org/playground][Inside the Go Playground]]" para aprender más.
-#appengine:
-#appengine: .play welcome/sandbox.go
+* Go Playground
+
+Este tour esta construido sobre [[https://play.golang.org/][Go Playground]],
+un servicio web que se ejecuta en los servidores de [[https://golang.org/][golang.org]].
+
+El servicio recibe un programa Go, compila, vincula y ejecuta el programa dentro
+de una zona de pruebas,luego devuelve la salida.
+
+Hay limitaciones para los programas que pueden ser ejecutados dentro del playground de Go:
+
+- En el playground, el tiempo empieza en el 2009-11-10 23:00:00 UTC (determinar el significado de esta fecha es un ejercicio para el lector). Esto facilita el almacenamiento en caché de los programas al proporcionarles una salida determinista.
+
+- También hay limitaciones en el tiempo de ejecución, el uso de CPU y memoria, y el programa no puede acceder a hosts de red externos.
+
+El playground utiliza la última version estable de Go.
+
+Lee "[[https://blog.golang.org/playground][Inside the Go Playground]]" para aprender más.
+
+.play welcome/sandbox.go
 
 * ¡Felicitaciones!
 
