@@ -11,18 +11,19 @@ Para poder usar el tour en español, lo primero que debes de verificar es:
 
 Una vez verificado estos pasos, deberás ejecutar el siguiente comando en tu terminal o en tu editor de código favorito:
 
-```
+```sh
 git clone https://github.com/gophers-latam/go-tour-es.git
 ```
+
 Ya clonado en el directorio elegido, ir a la carpeta:
 
-```
+```sh
  cd .\go-tour-es\tour\
 ```
 
 Y ejecutar:
 
-```go
+```sh
 go run .
 ```
 
