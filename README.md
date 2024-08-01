@@ -28,7 +28,7 @@ go run .
 
 Una vez realizado estos pasos, deberias ver la pantalla de bienvenida del tour de Go en español. Si no es asi, simplemente ingresa en tu navegador la siguiente ruta: **http://127.0.0.1:3999/**
 
-![image](https://github.com/gophers-latam/go-tour-es/assets/73196303/9144abac-bafe-42dc-9ba1-d819aaa6e515)
+![Local Demo](https://github.com/gophers-latam/go-tour-es/assets/73196303/9144abac-bafe-42dc-9ba1-d819aaa6e515)
 
 ## Versión online
 
@@ -46,4 +46,4 @@ Las traducciones se encuentran en la ruta: go-tour-es/tour/content/
 
 Cualquier issue y pull request son bienvenidos.
 
-![image](https://github.com/gophers-latam/go-tour-es/assets/73196303/e15fcc7e-6635-469a-9b17-bc9b50db373c)
+![Gophers LATAM Hero](https://github.com/gophers-latam/go-tour-es/assets/73196303/e15fcc7e-6635-469a-9b17-bc9b50db373c)
