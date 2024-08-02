@@ -39,7 +39,7 @@ en el botón [[javascript:highlightAndClick(".syntax-checkbox")][sintaxis]].
 
 Cuando estés listo para avanzar, haz clic en la [[javascript:highlightAndClick(".next-page")][flecha derecha]] abajo o presiona la tecla `PageDown`.
 
-Traducción realizada por la comunidad de [[https://github.com/gophers-latam/go-tour-es/][Gophers-Latam]].
+Traducción realizada por la comunidad de [[https://github.com/gophers-latam/go-tour-es/][Gophers LATAM]].
 
 .play welcome/hello.go
 
@@ -50,15 +50,15 @@ El tour está disponible en otros idiomas:
 - [[https://go.dev/tour/][English - English]] (versión original)
 - [[https://go-tour-br.appspot.com/][Brazilian Portuguese — Português do Brasil]]
 - [[https://go-tour-ca.appspot.com/][Catalan — Català]]
-- [[https://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
 - [[https://go-tour-cz.appspot.com/][Czech — Česky]]
 - [[https://go-tour-id2.appspot.com/][Indonesian — Bahasa Indonesia]]
 - [[https://go-tour-jp.appspot.com/][Japanese — 日本語]]
 - [[https://go-tour-ko.appspot.com/][Korean — 한국어]]
 - [[https://go-tour-pl1.appspot.com/][Polish — Polski]]
+- [[https://tour.go-zh.org/][Simplified Chinese — 中文（简体）]]
+- [[https://go-tour-lat.appspot.com/][Spanish — Español]]
 - [[https://go-tour-th.appspot.com/][Thai — ภาษาไทย]]
 - [[https://go-tour-ua-translation.lm.r.appspot.com/][Ukrainian — Українською]]
-- [[https://go-tour-lat.appspot.com/][Spanish — Español]]
 
 Haz clic en el botón [[javascript:highlightAndClick(".next-page")]["siguiente"]] o presiona `PageDown` para continuar.
 
@@ -82,15 +82,14 @@ Haz clic en el botón [[javascript:highlightAndClick(".next-page")]["siguiente"]
 
 #appengine: * Go Playground
 #appengine:
-#appengine: Este tour esta construido sobre [[https://play.golang.org/][Go Playground]], 
+#appengine: Este tour esta construido sobre [[https://play.golang.org/][Go Playground]],
 #appengine: un servicio web que se ejecuta en los servidores de [[https://golang.org/][golang.org]].
 #appengine:
-#appengine: El servicio recibe un programa Go, compila, vincula y ejecuta el programa dentro
-#appengine: de una zona de pruebas,luego devuelve la salida.
+#appengine: El servicio recibe un programa Go, compila, vincula y ejecuta el programa dentro de una zona de pruebas, luego devuelve la salida.
 #appengine:
 #appengine: Hay limitaciones para los programas que pueden ser ejecutados dentro del playground de Go:
 #appengine:
-#appengine: - En el playground, el tiempo empieza en el 2009-11-10 23:00:00 UTC (determinar el significado de esta fecha es un ejercicio para el lector). Esto facilita el almacenamiento en caché de los programas al proporcionarles una salida determinista. 
+#appengine: - En el playground, el tiempo empieza el 2009-11-10 23:00:00 UTC (determinar el significado de esta fecha es un ejercicio para el lector). Esto facilita el almacenamiento en caché de los programas al proporcionarles una salida determinista.
 #appengine:
 #appengine: - También hay limitaciones en el tiempo de ejecución, el uso de CPU y memoria, y el programa no puede acceder a hosts de red externos.
 #appengine:
