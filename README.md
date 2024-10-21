@@ -44,6 +44,8 @@ También, esta disponible la opción online del tour en español.
 
 👉 [Go Tour en Español](https://go-tour-lat.appspot.com/) 👈
 
+Esta [version](https://github.com/golang/website/pull/264) ya se encuentra en el [repositorio oficial](https://github.com/golang/website/pull/264) de Go.
+
 ## ⚠️ Reportar issues
 
 Para reportar un error de traducción o simplemente aportar al proyecto, puedes
